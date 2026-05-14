@@ -10,7 +10,7 @@ Repo: ~/projects/andrewchristison.com
 NOT Retencity. NOT Ask K. NOT DojoFlow. NOT Pondlog. NOT CropGraph.
 Read CLAUDE.md. Read BRIEF.md. Read docs/SESSION_HANDOFF.md. Read docs/STICKIES.md.
 Read ALL SKILL.md files in .agents/skills/ and .claude/skills/.
-Confirm exact count of skills loaded (should be [N]).
+Confirm exact count of skills loaded (should be 56).
 Check git log --oneline -5. Report current status and await instructions.
 If CLAUDE.md describes any other product besides andrewchristison.com,
 STOP and alert me — wrong file loaded.
