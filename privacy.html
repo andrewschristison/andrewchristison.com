@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Privacy on andrewchristison.com: no cookies, no analytics, no forms. Just a personal site.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://andrewchristison.com/privacy.html">
+<title>Privacy &middot; andrewchristison.com</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  :root {
+    --paper:        oklch(94% 0.012 82);
+    --paper-deep:   oklch(89% 0.018 80);
+    --chrome:       oklch(86% 0.015 80);
+    --bevel-light:  oklch(97% 0.010 85);
+    --bevel-dark:   oklch(54% 0.022 68);
+    --bevel-shadow: oklch(34% 0.030 60 / 0.22);
+    --ink:          oklch(22% 0.025 60);
+    --ink-soft:     oklch(38% 0.025 65);
+    --title-active:   oklch(34% 0.065 155);
+    --title-active-2: oklch(42% 0.070 160);
+    --title-text:     oklch(96% 0.008 85);
+    --accent-deep:    oklch(46% 0.165 38);
+    --wash-1:         oklch(40% 0.07 150 / 0.40);
+    --wash-2:         oklch(28% 0.06 145 / 0.55);
+    --font-mono:  Tahoma, "DejaVu Sans", Verdana, Geneva, sans-serif;
+    --font-serif: Georgia, "Times New Roman", Times, serif;
+    --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: var(--font-serif);
+    color: var(--ink);
+    background:
+      radial-gradient(at 20% 18%, var(--wash-1), transparent 55%),
+      radial-gradient(at 80% 70%, var(--wash-2), transparent 60%),
+      oklch(32% 0.06 145);
+    background-attachment: fixed;
+    display: grid;
+    place-items: center;
+    padding: var(--s-5);
+  }
+  main.window {
+    width: min(640px, 100%);
+    background: var(--chrome);
+    color: var(--ink);
+    border: 1px solid var(--bevel-dark);
+    box-shadow:
+      0 8px 32px var(--bevel-shadow),
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+    display: flex;
+    flex-direction: column;
+  }
+  header.title-bar {
+    height: 26px;
+    padding: 0 8px;
+    background: linear-gradient(to right, var(--title-active), var(--title-active-2));
+    color: var(--title-text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .title-buttons { display: flex; gap: 2px; }
+  .btn-title {
+    width: 20px; height: 18px;
+    background: var(--chrome);
+    color: var(--ink);
+    border: none;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1;
+    cursor: default;
+    text-decoration: none;
+    display: grid; place-items: center;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+  }
+  .btn-title:hover { background: var(--paper-deep); }
+  .btn-title.close-link { cursor: pointer; }
+  .body {
+    background: var(--paper);
+    padding: var(--s-5);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0 0 var(--s-4);
+    color: var(--ink);
+  }
+  p { margin: 0 0 var(--s-3); }
+  a { color: var(--accent-deep); }
+  ul { margin: 0 0 var(--s-3); padding-left: var(--s-5); }
+  li { margin-bottom: var(--s-2); }
+  .footer {
+    border-top: 1px solid var(--bevel-dark);
+    margin-top: var(--s-4);
+    padding-top: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+  .footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--ink-soft);
+  }
+  .footer a:hover { color: var(--accent-deep); border-bottom-color: var(--accent-deep); }
+</style>
+</head>
+<body>
+
+<main class="window" aria-label="Privacy">
+  <header class="title-bar">
+    <span>privacy.html</span>
+    <span class="title-buttons">
+      <a href="/" class="btn-title close-link" aria-label="Back to desktop">&times;</a>
+    </span>
+  </header>
+  <div class="body">
+    <h1>Privacy</h1>
+
+    <p>This is a personal website. It does not collect personal data.</p>
+
+    <p>No cookies. No analytics. No trackers. No forms. No email capture.</p>
+
+    <p>Sound preferences are stored in your browser's <code>localStorage</code> so the site remembers whether you muted it. That data never leaves your browser.</p>
+
+    <p>External links go out to <a href="https://retencity.com">retencity.com</a>, <a href="https://ask-k.retencity.com">ask-k.retencity.com</a>, <a href="https://pondlog.co">pondlog.co</a>, <a href="https://cropgraph.com">cropgraph.com</a>, <a href="https://www.linkedin.com/in/andrewchristison/">LinkedIn</a>, and Instagram. Those sites have their own privacy policies. They are not me.</p>
+
+    <p>The Open Graph image and meta tags exist so links shared on LinkedIn or X show a thumbnail. The image and meta description travel with the URL; they don't report back.</p>
+
+    <p>The site is hosted on Vercel. Vercel may keep standard server logs (IP address, user agent, timestamps) per <a href="https://vercel.com/legal/privacy-policy">their privacy policy</a>.</p>
+
+    <p>Contact: <a href="https://www.linkedin.com/in/andrewchristison/">linkedin.com/in/andrewchristison</a></p>
+
+    <div class="footer">
+      <span>&copy; 2026 Andrew Christison. All rights reserved.</span>
+      <a href="/">&larr; back to desktop</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

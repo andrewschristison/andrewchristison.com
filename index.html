@@ -140,6 +140,8 @@
     --z-icon:    5;
     --z-taskbar: 100;
     --z-start:   110;
+    --z-screensaver: 160;
+    --z-clippy:      170;
     --z-overlay: 200;
 
     --taskbar-h: 38px;
@@ -885,10 +887,14 @@
     transform: rotate(180deg);
   }
   .start-list {
-    margin-left: 32px;
+    list-style: none;
+    margin: 0 0 0 32px;
+    padding: 0;
     display: flex;
     flex-direction: column;
   }
+  .start-list li { list-style: none; }
+  .start-list .start-submenu-toggle .start-icon { flex-shrink: 0; }
   .start-list li button,
   .start-list li a {
     display: flex;
@@ -981,6 +987,367 @@
   @media (hover: none) {
     .desktop-icon:hover { border-color: transparent; }
     .work-card:hover { transform: none; }
+  }
+
+  /* ============================================================
+     Easter eggs: Internet Explorer window (EE-006)
+     ============================================================ */
+  #win-ie .window-content {
+    padding: var(--s-5);
+    font-family: var(--font-serif);
+    font-size: var(--text-body);
+    color: var(--ink);
+    line-height: 1.5;
+    text-align: center;
+  }
+  #win-ie .window-content p { margin: 0 0 var(--s-3); }
+  #win-ie .window-content a {
+    color: var(--accent-deep);
+    text-decoration: underline;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+  #win-ie .ie-mark {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: oklch(36% 0.10 250);
+    line-height: 1;
+    margin-bottom: var(--s-3);
+  }
+
+  /* ============================================================
+     Easter eggs: Minesweeper (EE-007)
+     ============================================================ */
+  #win-minesweeper .window-content {
+    padding: var(--s-3);
+    background: var(--chrome);
+  }
+  .minesweeper-head {
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--s-3);
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+  .minesweeper-readout {
+    background: oklch(15% 0.02 30);
+    color: oklch(70% 0.18 25);
+    font-family: var(--font-code);
+    font-weight: 700;
+    font-size: 18px;
+    padding: 2px 6px;
+    letter-spacing: 0.05em;
+    box-shadow:
+      inset 1px 1px 0 oklch(8% 0.02 30),
+      inset -1px -1px 0 oklch(28% 0.02 30);
+  }
+  .minesweeper-face {
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    font-size: 16px;
+    line-height: 1;
+    background: var(--chrome);
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+  }
+  .minesweeper-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 26px);
+    grid-template-rows: repeat(9, 26px);
+    gap: 1px;
+    background: var(--bevel-dark);
+    padding: 3px;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+  .ms-cell {
+    background: var(--chrome);
+    display: grid; place-items: center;
+    font-family: var(--font-code);
+    font-weight: 700;
+    font-size: 13px;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+  }
+  .ms-cell.revealed {
+    background: oklch(82% 0.012 80);
+    box-shadow: inset 0 0 0 1px var(--bevel-dark);
+  }
+  .ms-cell.letter {
+    color: var(--accent-deep);
+    background: oklch(94% 0.04 80);
+    box-shadow: inset 0 0 0 1px var(--bevel-dark);
+  }
+  .ms-cell.num-1 { color: oklch(40% 0.15 250); }
+  .ms-cell.num-2 { color: oklch(40% 0.15 145); }
+  .ms-cell.num-3 { color: oklch(45% 0.18 25); }
+
+  /* ============================================================
+     Easter eggs: Run dialog (EE-010)
+     ============================================================ */
+  #win-run .window-content {
+    padding: var(--s-4);
+    display: grid;
+    gap: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--ink);
+  }
+  .run-prompt {
+    display: flex;
+    gap: var(--s-3);
+    align-items: flex-start;
+  }
+  .run-icon {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+    color: var(--accent-deep);
+  }
+  .run-label {
+    flex: 1;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  .run-row {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+  }
+  .run-row label {
+    font-size: 0.75rem;
+    width: 48px;
+  }
+  #run-input {
+    flex: 1;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    padding: 3px 6px;
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+  #run-input:focus {
+    outline: 1px dotted var(--bevel-dark);
+    outline-offset: -3px;
+  }
+  .run-output {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--accent-deep);
+    min-height: 1.2em;
+    padding: 4px 6px;
+    background: var(--paper);
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+  .run-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--s-2);
+  }
+  .btn-system {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 14px;
+    min-width: 64px;
+    background: var(--chrome);
+    color: var(--ink);
+    border: none;
+    cursor: pointer;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+  }
+  .btn-system:active {
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+
+  /* ============================================================
+     Easter eggs: Screensaver (EE-005)
+     ============================================================ */
+  #screensaver {
+    position: fixed;
+    inset: 0;
+    background: oklch(10% 0.02 60);
+    z-index: var(--z-screensaver);
+    cursor: pointer;
+    animation: fade-in 240ms var(--ease-out) both;
+  }
+  #screensaver[hidden] { display: none; }
+  #screensaver canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .screensaver-static {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: oklch(38% 0.02 60);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+  }
+
+  /* ============================================================
+     Easter eggs: Clippy / SnoopGuide (EE-009)
+     ============================================================ */
+  #clippy {
+    position: fixed;
+    right: var(--s-4);
+    bottom: calc(var(--taskbar-h) + var(--s-4));
+    z-index: var(--z-clippy);
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--s-2);
+    pointer-events: none;
+  }
+  #clippy[hidden] { display: none; }
+  #clippy.entering { animation: clippy-slide-in 720ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+  #clippy.leaving  { animation: clippy-slide-out 320ms var(--ease-out) both; }
+  @keyframes clippy-slide-in {
+    from { opacity: 0; transform: translateY(140%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes clippy-slide-out {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(110%); }
+  }
+  .clippy-bubble {
+    background: oklch(95% 0.05 95);
+    color: var(--ink);
+    border: 1px solid var(--bevel-dark);
+    padding: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.45;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark),
+      0 4px 12px var(--bevel-shadow);
+    pointer-events: auto;
+    width: 100%;
+  }
+  .clippy-actions {
+    display: flex;
+    gap: var(--s-2);
+    margin-top: var(--s-2);
+    justify-content: flex-end;
+  }
+  .clippy-art {
+    width: 96px;
+    height: 124px;
+    pointer-events: auto;
+    filter: drop-shadow(0 4px 6px var(--bevel-shadow));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #clippy.entering, #clippy.leaving { animation: fade-in 200ms both; }
+  }
+
+  /* ============================================================
+     Easter eggs: Icon drag (EE-008, EE-011)
+     ============================================================ */
+  .desktop-icon.dragging {
+    opacity: 0.85;
+    transform: scale(1.04);
+    cursor: grabbing;
+    z-index: calc(var(--z-icon) + 5);
+    pointer-events: none;
+  }
+  .desktop-icon.drop-target {
+    background: oklch(80% 0.05 80 / 0.45);
+    border-color: var(--accent);
+    border-style: solid;
+  }
+  .desktop-icon.recycle-target {
+    background: oklch(50% 0.12 30 / 0.35);
+    border-color: oklch(55% 0.18 30);
+    border-style: solid;
+  }
+  .icon-tooltip {
+    position: fixed;
+    padding: 4px 10px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark),
+      0 4px 12px var(--bevel-shadow);
+    z-index: calc(var(--z-icon) + 100);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 220ms var(--ease-out);
+  }
+  .icon-tooltip.visible { opacity: 1; }
+
+  /* ============================================================
+     Easter eggs: Cursor trails (EE-012)
+     ============================================================ */
+  .cursor-trail {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    pointer-events: none;
+    z-index: calc(var(--z-overlay) + 1);
+    opacity: 0.55;
+    animation: trail-fade 360ms var(--ease-out) forwards;
+    will-change: transform, opacity;
+  }
+  @keyframes trail-fade {
+    from { opacity: 0.55; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.35); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-trail { display: none; }
+  }
+
+  /* ============================================================
+     Start menu submenus (accordion)
+     ============================================================ */
+  .start-submenu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .start-submenu.open { display: block; }
+  .start-submenu li button,
+  .start-submenu li a {
+    padding-left: 28px;
+  }
+  .start-chevron {
+    margin-left: auto;
+    font-size: 0.7rem;
+    transition: transform var(--dur-snappy) var(--ease-out);
+  }
+  .start-submenu-toggle[aria-expanded="true"] .start-chevron {
+    transform: rotate(90deg);
   }
 
   /* ============================================================
@@ -1754,6 +2121,20 @@
       </button>
     </li>
     <li>
+      <button class="desktop-icon" data-window="ie" aria-label="Open Internet Explorer">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <ellipse cx="20" cy="23" rx="17" ry="5.5" fill="none" stroke="#c8a020" stroke-width="2.2" transform="rotate(-22 20 23)"/>
+            <circle cx="20" cy="20" r="12" fill="#0a5cab" stroke="#08407a" stroke-width="1.2"/>
+            <path d="M20 8 a12 12 0 0 1 11 7" fill="none" stroke="#5fa0e0" stroke-width="1.4" stroke-linecap="round"/>
+            <text x="20" y="26" font-family="Tahoma,Verdana,sans-serif" font-size="16" font-weight="700" fill="#fff8e8" text-anchor="middle">e</text>
+            <ellipse cx="20" cy="23" rx="17" ry="5.5" fill="none" stroke="#c8a020" stroke-width="2.2" transform="rotate(-22 20 23)" stroke-dasharray="14 200" stroke-dashoffset="6"/>
+          </svg>
+        </span>
+        <span class="icon-label">Internet Explorer</span>
+      </button>
+    </li>
+    <li>
       <button class="desktop-icon" data-window="recycle" aria-label="Open Recycle Bin window">
         <span class="icon-art" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none">
@@ -2100,12 +2481,100 @@
     </div>
   </article>
 
+  <!-- Internet Explorer (EE-006) -->
+  <article class="window" id="win-ie" data-window="ie" data-w="360" data-h="240" data-x="34%" data-y="22%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Internet Explorer</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="ie-mark" aria-hidden="true">e</div>
+      <p>This browser has been retired.</p>
+      <p>Try going outside.</p>
+      <p><a href="https://pondlog.co" target="_blank" rel="noopener noreferrer">pondlog.co</a></p>
+    </div>
+  </article>
+
+  <!-- Minesweeper (EE-007) -->
+  <article class="window" id="win-minesweeper" data-window="minesweeper" data-w="288" data-h="360" data-x="38%" data-y="18%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Minesweeper</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="minesweeper-head">
+        <span class="minesweeper-readout" aria-label="Mines remaining">010</span>
+        <button class="minesweeper-face" aria-label="Reset" type="button">☺</button>
+        <span class="minesweeper-readout" aria-label="Time">000</span>
+      </div>
+      <div class="minesweeper-grid" id="minesweeper-grid" aria-label="Minesweeper board" role="grid"></div>
+    </div>
+  </article>
+
+  <!-- Run dialog (EE-010) -->
+  <article class="window" id="win-run" data-window="run" data-w="380" data-h="200" data-x="36%" data-y="32%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Run</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="run-prompt">
+        <span class="run-icon" aria-hidden="true">▶</span>
+        <p class="run-label">Type the name of a program, folder, document, or Internet resource, and andrewchristison.com will open it for you.</p>
+      </div>
+      <div class="run-row">
+        <label for="run-input">Open:</label>
+        <input id="run-input" type="text" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="run-output" id="run-output" aria-live="polite"></div>
+      <div class="run-actions">
+        <button class="btn-system" id="run-ok" type="button">OK</button>
+        <button class="btn-system" id="run-cancel" type="button">Cancel</button>
+      </div>
+    </div>
+  </article>
+
   <!-- Shut down overlay (easter egg) -->
   <div id="shutdown-overlay" role="dialog" aria-modal="true" aria-label="Shut down" hidden>
     <div class="shutdown-message">
       <p class="shutdown-title">Andrew has stepped away.</p>
       <p class="shutdown-sub">Click anywhere to wake up</p>
     </div>
+  </div>
+
+  <!-- Screensaver overlay (EE-005) -->
+  <div id="screensaver" role="presentation" hidden>
+    <canvas id="screensaver-canvas" aria-hidden="true"></canvas>
+    <div class="screensaver-static" id="screensaver-static" hidden>andrewchristison.com</div>
+  </div>
+
+  <!-- Clippy / SnoopGuide (EE-009) -->
+  <div id="clippy" role="dialog" aria-label="Snoop guide" hidden>
+    <div class="clippy-bubble">
+      <p id="clippy-text">It looks like you're exploring someone's entire life. Would you like help?</p>
+      <div class="clippy-actions" id="clippy-actions">
+        <button class="btn-system" id="clippy-yes" type="button">Yes</button>
+        <button class="btn-system" id="clippy-no" type="button">No, I'm snooping</button>
+      </div>
+    </div>
+    <svg class="clippy-art" viewBox="0 0 96 124" aria-hidden="true">
+      <path d="M30 22 Q30 10 48 10 Q66 10 66 26 L66 96 Q66 110 50 110 Q34 110 34 96 L34 34 Q34 24 44 24 Q54 24 54 34 L54 80"
+            stroke="#7a8cbc" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="42" cy="48" rx="4" ry="5" fill="#1a1612"/>
+      <ellipse cx="52" cy="48" rx="4" ry="5" fill="#1a1612"/>
+      <ellipse cx="43" cy="46" rx="1" ry="1.4" fill="#fff8e8"/>
+      <ellipse cx="53" cy="46" rx="1" ry="1.4" fill="#fff8e8"/>
+      <path d="M38 40 Q42 38 46 40" stroke="#1a1612" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M48 40 Q52 38 56 40" stroke="#1a1612" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
   </div>
 
 </div><!-- /#desktop -->
@@ -2124,9 +2593,41 @@
 </nav>
 
 <!-- Start menu (anchored above start button) -->
-<ul id="start-menu" role="menu" aria-label="Start menu" hidden>
-  <div class="start-rail" aria-hidden="true"><span class="start-rail-text">andrew</span></div>
-  <div class="start-list">
+<div id="start-menu" role="menu" aria-label="Start menu" hidden>
+  <div class="start-rail" aria-hidden="true"><span class="start-rail-text">&copy; 2026 Andrew Christison</span></div>
+  <ul class="start-list">
+    <li role="none">
+      <button role="menuitem" class="start-submenu-toggle" aria-expanded="false" aria-controls="submenu-programs" data-submenu="programs">
+        <span class="start-icon" aria-hidden="true">▦</span>Programs<span class="start-chevron" aria-hidden="true">▸</span>
+      </button>
+      <ul id="submenu-programs" class="start-submenu" role="menu">
+        <li role="none">
+          <button role="menuitem" class="start-submenu-toggle" aria-expanded="false" aria-controls="submenu-games" data-submenu="games">
+            <span class="start-icon" aria-hidden="true">◇</span>Games<span class="start-chevron" aria-hidden="true">▸</span>
+          </button>
+          <ul id="submenu-games" class="start-submenu" role="menu">
+            <li role="none"><button role="menuitem" data-window="minesweeper"><span class="start-icon" aria-hidden="true">▦</span>Minesweeper</button></li>
+          </ul>
+        </li>
+        <li role="none"><button role="menuitem" data-window="ie"><span class="start-icon" aria-hidden="true">e</span>Internet Explorer</button></li>
+      </ul>
+    </li>
+    <li role="none">
+      <button role="menuitem" class="start-submenu-toggle" aria-expanded="false" aria-controls="submenu-settings" data-submenu="settings">
+        <span class="start-icon" aria-hidden="true">⚙</span>Settings<span class="start-chevron" aria-hidden="true">▸</span>
+      </button>
+      <ul id="submenu-settings" class="start-submenu" role="menu">
+        <li role="none">
+          <button role="menuitem" class="start-submenu-toggle" aria-expanded="false" aria-controls="submenu-mouse" data-submenu="mouse">
+            <span class="start-icon" aria-hidden="true">↗</span>Mouse<span class="start-chevron" aria-hidden="true">▸</span>
+          </button>
+          <ul id="submenu-mouse" class="start-submenu" role="menu">
+            <li role="none"><button role="menuitem" id="cursor-trails-toggle" aria-pressed="false"><span class="start-icon" aria-hidden="true">·</span>Cursor trails</button></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="start-separator" role="separator"></li>
     <li role="none"><button role="menuitem" data-window="about"><span class="start-icon" aria-hidden="true">◳</span>About</button></li>
     <li role="none"><button role="menuitem" data-window="work"><span class="start-icon" aria-hidden="true">▦</span>Work</button></li>
     <li role="none"><button role="menuitem" data-window="running"><span class="start-icon" aria-hidden="true">⟶</span>Running</button></li>
@@ -2137,11 +2638,13 @@
     <li role="none"><button role="menuitem" data-window="notepad"><span class="start-icon" aria-hidden="true">≣</span>Notepad</button></li>
     <li role="none"><button role="menuitem" data-window="recycle"><span class="start-icon" aria-hidden="true">⌬</span>Recycle Bin</button></li>
     <li class="start-separator" role="separator"></li>
+    <li role="none"><button role="menuitem" data-window="run"><span class="start-icon" aria-hidden="true">▶</span>Run&hellip;</button></li>
+    <li role="none"><a role="menuitem" href="/privacy.html"><span class="start-icon" aria-hidden="true">§</span>Privacy</a></li>
     <li role="none"><a role="menuitem" href="https://www.linkedin.com/in/andrewchristison" target="_blank" rel="noopener noreferrer"><span class="start-icon" aria-hidden="true">↗</span>LinkedIn</a></li>
     <li class="start-separator" role="separator"></li>
     <li role="none"><button role="menuitem" id="shutdown-btn"><span class="start-icon" aria-hidden="true">⏻</span>Shut Down&hellip;</button></li>
-  </div>
-</ul>
+  </ul>
+</div>
 
 <script>
 (() => {
@@ -2153,7 +2656,8 @@
      ============================================================ */
   const WINDOWS = [
     'about', 'work', 'running', 'martialarts', 'homestead',
-    'bus', 'writing', 'notepad', 'recycle'
+    'bus', 'writing', 'notepad', 'recycle',
+    'ie', 'minesweeper', 'run'
   ];
   const AUTO_OPEN = ['about', 'work'];
   const TASKBAR_H = 38;
@@ -2228,6 +2732,28 @@
       const notes = [659, 784, 988, 1175];
       notes.forEach((f, i) => setTimeout(() => tone(f, 0.16, 0.05, 'sine'), i * 90));
     }
+    function crumple() {
+      if (!enabled) return;
+      const c = ensureContext();
+      if (!c) return;
+      if (c.state === 'suspended') c.resume();
+      const buf = c.createBuffer(1, c.sampleRate * 0.18, c.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < data.length; i++) {
+        const t = i / data.length;
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-t * 4) * (1 - t * 0.4);
+      }
+      const src = c.createBufferSource();
+      const filter = c.createBiquadFilter();
+      const g = c.createGain();
+      filter.type = 'bandpass';
+      filter.frequency.value = 1100;
+      filter.Q.value = 0.7;
+      g.gain.value = 0.08;
+      src.buffer = buf;
+      src.connect(filter); filter.connect(g); g.connect(c.destination);
+      src.start();
+    }
 
     function setEnabled(v) {
       enabled = v;
@@ -2245,7 +2771,7 @@
       btn.style.opacity = enabled ? '1' : '0.55';
     }
 
-    return { chime, softClose, click, unlock, toggle, renderButton, get enabled() { return enabled; } };
+    return { chime, softClose, click, unlock, crumple, toggle, renderButton, get enabled() { return enabled; } };
   })();
 
   /* ============================================================
@@ -2634,6 +3160,495 @@
   })();
 
   /* ============================================================
+     Reduced motion helper
+     ============================================================ */
+  const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ============================================================
+     Minesweeper static board (EE-007)
+     Renders a 9x9 board spelling "ANDREW WAS HERE" across cells.
+     ============================================================ */
+  const MinesweeperBoard = (() => {
+    const ROWS = 9, COLS = 9;
+    const message = ['A','N','D','R','E','W','W','A','S','H','E','R','E'];
+    const slots = [
+      [1,1],[1,2],[1,3],[1,4],[1,5],[1,6],
+      [1,8],[2,8],
+      [3,8],
+      [5,1],[5,2],[5,3],[5,4]
+    ];
+    const numberMap = new Map([
+      ['0,0', 1], ['0,1', 2],
+      ['3,0', 1], ['3,2', 1],
+      ['6,5', 2], ['6,6', 3],
+      ['7,0', 1], ['7,2', 2], ['8,8', 1]
+    ]);
+    let built = false;
+    function build() {
+      if (built) return;
+      const grid = document.getElementById('minesweeper-grid');
+      if (!grid) return;
+      const letterAt = new Map();
+      slots.forEach((rc, i) => {
+        if (i < message.length) letterAt.set(rc[0] + ',' + rc[1], message[i]);
+      });
+      const frag = document.createDocumentFragment();
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'ms-cell';
+          cell.setAttribute('role', 'gridcell');
+          const key = r + ',' + c;
+          if (letterAt.has(key)) {
+            cell.classList.add('letter');
+            cell.textContent = letterAt.get(key);
+          } else if (numberMap.has(key)) {
+            const n = numberMap.get(key);
+            cell.classList.add('revealed', 'num-' + n);
+            cell.textContent = n;
+          } else if ((r + c) % 5 === 0 && r > 6) {
+            cell.classList.add('revealed');
+          }
+          frag.appendChild(cell);
+        }
+      }
+      grid.appendChild(frag);
+      built = true;
+    }
+    return { build };
+  })();
+
+  /* ============================================================
+     Run dialog (EE-010)
+     ============================================================ */
+  const RunDialog = (() => {
+    const responses = {
+      'hello': 'Hello World.',
+      'goats': 'Currently: 2. Named: yes.',
+      'miles': '4:38:39',
+      'help':  'Try going for a run.'
+    };
+    function evaluate(raw) {
+      const cmd = (raw || '').trim().toLowerCase();
+      if (!cmd) return '';
+      return Object.prototype.hasOwnProperty.call(responses, cmd)
+        ? responses[cmd]
+        : 'Bad command or file name.';
+    }
+    function wire() {
+      const input = document.getElementById('run-input');
+      const output = document.getElementById('run-output');
+      const ok = document.getElementById('run-ok');
+      const cancel = document.getElementById('run-cancel');
+      if (!input || !output || !ok || !cancel) return;
+      const submit = () => {
+        output.textContent = evaluate(input.value);
+        input.select();
+      };
+      ok.addEventListener('click', submit);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); submit(); }
+      });
+      cancel.addEventListener('click', () => WindowManager.close('run'));
+    }
+    function focus() {
+      const input = document.getElementById('run-input');
+      if (input) setTimeout(() => { input.value = ''; input.focus(); }, 60);
+      const output = document.getElementById('run-output');
+      if (output) output.textContent = '';
+    }
+    return { wire, focus, evaluate };
+  })();
+
+  /* ============================================================
+     SnoopGuide / Clippy (EE-009)
+     Triggers once per session after 4 unique window opens.
+     ============================================================ */
+  const SnoopGuide = (() => {
+    const TRIGGER_AT = 4;
+    const opened = new Set();
+    let shown = false;
+    function noteOpen(id) {
+      if (shown) return;
+      opened.add(id);
+      if (opened.size >= TRIGGER_AT) show();
+    }
+    function show() {
+      if (shown) return;
+      shown = true;
+      const el = document.getElementById('clippy');
+      const text = document.getElementById('clippy-text');
+      const actions = document.getElementById('clippy-actions');
+      if (!el) return;
+      if (text) text.textContent = "It looks like you're exploring someone's entire life. Would you like help?";
+      if (actions) actions.hidden = false;
+      el.hidden = false;
+      el.classList.remove('leaving');
+      el.classList.add('entering');
+      el.addEventListener('animationend', () => el.classList.remove('entering'), { once: true });
+      SoundEngine.click();
+    }
+    function dismiss(quick) {
+      const el = document.getElementById('clippy');
+      if (!el) return;
+      el.classList.remove('entering');
+      el.classList.add('leaving');
+      const finish = () => {
+        el.hidden = true;
+        el.classList.remove('leaving');
+      };
+      if (quick || reducedMotion()) { finish(); return; }
+      el.addEventListener('animationend', finish, { once: true });
+    }
+    function respect() {
+      const text = document.getElementById('clippy-text');
+      const actions = document.getElementById('clippy-actions');
+      if (text) text.textContent = 'Respect.';
+      if (actions) actions.hidden = true;
+      setTimeout(() => dismiss(false), 1200);
+    }
+    function wire() {
+      const yes = document.getElementById('clippy-yes');
+      const no = document.getElementById('clippy-no');
+      if (yes) yes.addEventListener('click', () => {
+        dismiss(true);
+        WindowManager.open('about');
+      });
+      if (no) no.addEventListener('click', () => respect());
+    }
+    return { noteOpen, show, dismiss, wire };
+  })();
+
+  /* ============================================================
+     Idle screensaver (EE-005)
+     ============================================================ */
+  const IdleScreensaver = (() => {
+    const IDLE_MS = 60000;
+    let timer = null;
+    let active = false;
+    let raf = null;
+    let stars = [];
+    let canvas = null, ctx = null;
+
+    function resetTimer() {
+      if (timer) clearTimeout(timer);
+      if (active) dismiss();
+      timer = setTimeout(activate, IDLE_MS);
+    }
+    function activate() {
+      if (active) return;
+      const overlay = document.getElementById('screensaver');
+      if (!overlay) return;
+      active = true;
+      overlay.hidden = false;
+      if (reducedMotion()) {
+        document.getElementById('screensaver-static').hidden = false;
+        canvas = document.getElementById('screensaver-canvas');
+        if (canvas) canvas.style.display = 'none';
+        return;
+      }
+      document.getElementById('screensaver-static').hidden = true;
+      canvas = document.getElementById('screensaver-canvas');
+      ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.display = 'block';
+      stars = [];
+      for (let i = 0; i < 220; i++) stars.push(spawnStar());
+      loop();
+    }
+    function spawnStar() {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.random() * 40 + 10;
+      return {
+        x: 0, y: 0,
+        vx: Math.cos(angle) * (0.6 + Math.random() * 0.4),
+        vy: Math.sin(angle) * (0.6 + Math.random() * 0.4),
+        age: dist,
+        bright: 0.5 + Math.random() * 0.5
+      };
+    }
+    function loop() {
+      if (!active || !ctx) return;
+      const w = canvas.width, h = canvas.height;
+      const cx = w / 2, cy = h / 2;
+      ctx.fillStyle = 'rgba(10, 10, 14, 0.32)';
+      ctx.fillRect(0, 0, w, h);
+      for (const s of stars) {
+        s.age += 1;
+        const speed = 1 + s.age * 0.012;
+        s.x += s.vx * speed;
+        s.y += s.vy * speed;
+        const px = cx + s.x;
+        const py = cy + s.y;
+        if (px < 0 || px > w || py < 0 || py > h) {
+          Object.assign(s, spawnStar());
+          continue;
+        }
+        const size = Math.min(2.4, 0.4 + s.age * 0.012);
+        ctx.fillStyle = 'rgba(240, 232, 208, ' + (s.bright * Math.min(1, s.age / 30)) + ')';
+        ctx.fillRect(px, py, size, size);
+      }
+      raf = requestAnimationFrame(loop);
+    }
+    function dismiss() {
+      if (!active) return;
+      active = false;
+      if (raf) cancelAnimationFrame(raf);
+      raf = null;
+      const overlay = document.getElementById('screensaver');
+      if (overlay) overlay.hidden = true;
+    }
+    function onActivity(e) {
+      if (active) {
+        dismiss();
+        resetTimer();
+        e.stopPropagation && e.stopPropagation();
+        if (e.type === 'pointerdown' || e.type === 'click') e.preventDefault();
+        return;
+      }
+      resetTimer();
+    }
+    function start() {
+      ['pointermove', 'pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(ev => {
+        document.addEventListener(ev, onActivity, { passive: ev !== 'pointerdown' });
+      });
+      window.addEventListener('resize', () => {
+        if (active && canvas) {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+      });
+      resetTimer();
+    }
+    return { start, activate, dismiss };
+  })();
+
+  /* ============================================================
+     Cursor trails (EE-012)
+     ============================================================ */
+  const CursorTrails = (() => {
+    let on = false;
+    let last = 0;
+    const MIN_GAP_MS = 24;
+    function onMove(e) {
+      if (!on || reducedMotion()) return;
+      const now = performance.now();
+      if (now - last < MIN_GAP_MS) return;
+      last = now;
+      const dot = document.createElement('div');
+      dot.className = 'cursor-trail';
+      dot.style.left = (e.clientX - 7) + 'px';
+      dot.style.top = (e.clientY - 7) + 'px';
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 380);
+    }
+    function setEnabled(v) {
+      on = !!v && !reducedMotion();
+      const btn = document.getElementById('cursor-trails-toggle');
+      if (btn) {
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.classList.toggle('start-toggle-on', on);
+        const icon = btn.querySelector('.start-icon');
+        if (icon) icon.textContent = on ? '●' : '·';
+      }
+    }
+    function toggle() { setEnabled(!on); }
+    function start() {
+      document.addEventListener('pointermove', onMove, { passive: true });
+    }
+    return { start, toggle, setEnabled, get on() { return on; } };
+  })();
+
+  /* ============================================================
+     Start menu accordion (submenus)
+     ============================================================ */
+  const StartAccordion = (() => {
+    function wire() {
+      document.querySelectorAll('.start-submenu-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = btn.getAttribute('aria-controls');
+          const sub = id ? document.getElementById(id) : null;
+          if (!sub) return;
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          sub.classList.toggle('open', !expanded);
+        });
+      });
+    }
+    function collapseAll() {
+      document.querySelectorAll('.start-submenu-toggle').forEach(btn => {
+        btn.setAttribute('aria-expanded', 'false');
+      });
+      document.querySelectorAll('.start-submenu').forEach(s => s.classList.remove('open'));
+    }
+    return { wire, collapseAll };
+  })();
+
+  /* ============================================================
+     IconDragController (EE-011 + EE-008)
+     Drag desktop icons; swap positions in grid; drop on Recycle Bin
+     triggers the crumple/respawn easter egg.
+     ============================================================ */
+  const IconDragController = (() => {
+    const DRAG_THRESHOLD = 6;
+    const pendingRespawn = new Map();
+
+    function attach(iconEl) {
+      const li = iconEl.parentElement;
+      if (!li) return;
+      let dragging = false;
+      let armed = false;
+      let pointerId = null;
+      let startX = 0, startY = 0;
+      let origRect = null;
+      let suppressClick = false;
+
+      iconEl.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 && e.pointerType === 'mouse') return;
+        if (window.matchMedia('(max-width: 640px)').matches) return;
+        if (iconEl.dataset.window === 'recycle') return; // Recycle Bin is fixed
+        armed = true;
+        pointerId = e.pointerId;
+        startX = e.clientX;
+        startY = e.clientY;
+        origRect = iconEl.getBoundingClientRect();
+      });
+
+      iconEl.addEventListener('pointermove', (e) => {
+        if (!armed || e.pointerId !== pointerId) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        if (!dragging) {
+          if (Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
+          dragging = true;
+          suppressClick = true;
+          iconEl.setPointerCapture(pointerId);
+          iconEl.classList.add('dragging');
+          iconEl.style.position = 'fixed';
+          iconEl.style.left = origRect.left + 'px';
+          iconEl.style.top = origRect.top + 'px';
+          iconEl.style.width = origRect.width + 'px';
+        }
+        iconEl.style.left = (origRect.left + dx) + 'px';
+        iconEl.style.top = (origRect.top + dy) + 'px';
+
+        // Highlight drop target
+        clearHover();
+        const targetIcon = pickTarget(e.clientX, e.clientY, iconEl);
+        if (targetIcon) {
+          targetIcon.classList.add(
+            targetIcon.dataset.window === 'recycle' ? 'recycle-target' : 'drop-target'
+          );
+        }
+      });
+
+      const end = (e) => {
+        if (e.pointerId !== pointerId) return;
+        try { iconEl.releasePointerCapture(pointerId); } catch (err) {}
+        pointerId = null;
+        if (!dragging) { armed = false; return; }
+        const target = pickTarget(e.clientX, e.clientY, iconEl);
+        clearHover();
+        // Reset visual
+        iconEl.classList.remove('dragging');
+        iconEl.style.position = '';
+        iconEl.style.left = '';
+        iconEl.style.top = '';
+        iconEl.style.width = '';
+        if (target && target.dataset.window === 'recycle') {
+          recycle(iconEl);
+        } else if (target) {
+          swap(li, target.parentElement);
+        }
+        dragging = false;
+        armed = false;
+        setTimeout(() => { suppressClick = false; }, 0);
+      };
+      iconEl.addEventListener('pointerup', end);
+      iconEl.addEventListener('pointercancel', end);
+      iconEl.addEventListener('click', (e) => {
+        if (suppressClick) { e.preventDefault(); e.stopImmediatePropagation(); }
+      }, true);
+    }
+
+    function clearHover() {
+      document.querySelectorAll('.desktop-icon.drop-target, .desktop-icon.recycle-target')
+        .forEach(el => el.classList.remove('drop-target', 'recycle-target'));
+    }
+
+    function pickTarget(x, y, self) {
+      const icons = document.querySelectorAll('.desktop-icon');
+      for (const ic of icons) {
+        if (ic === self) continue;
+        if (ic.parentElement && ic.parentElement.dataset && ic.parentElement.dataset.hidden === '1') continue;
+        const r = ic.getBoundingClientRect();
+        if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return ic;
+      }
+      return null;
+    }
+
+    function swap(a, b) {
+      if (!a || !b || a === b) return;
+      const grid = a.parentElement;
+      if (!grid || b.parentElement !== grid) return;
+      const placeholder = document.createComment('swap');
+      grid.insertBefore(placeholder, a);
+      grid.insertBefore(a, b);
+      grid.insertBefore(b, placeholder);
+      placeholder.remove();
+      SoundEngine.click();
+    }
+
+    function recycle(iconEl) {
+      const li = iconEl.parentElement;
+      if (!li || pendingRespawn.has(iconEl)) return;
+      const origPrev = li.previousElementSibling;
+      const grid = li.parentElement;
+      li.dataset.hidden = '1';
+      li.style.visibility = 'hidden';
+      SoundEngine.crumple();
+      const respawn = setTimeout(() => {
+        // Restore to original position
+        li.style.visibility = '';
+        delete li.dataset.hidden;
+        if (origPrev && origPrev.parentElement === grid) {
+          grid.insertBefore(li, origPrev.nextElementSibling);
+        } else {
+          grid.insertBefore(li, grid.firstChild);
+        }
+        showTooltip(iconEl, 'nice try');
+        pendingRespawn.delete(iconEl);
+      }, 3000);
+      pendingRespawn.set(iconEl, respawn);
+    }
+
+    function showTooltip(iconEl, text) {
+      const tip = document.createElement('div');
+      tip.className = 'icon-tooltip';
+      tip.textContent = text;
+      document.body.appendChild(tip);
+      const r = iconEl.getBoundingClientRect();
+      tip.style.left = (r.left + r.width / 2 - tip.offsetWidth / 2) + 'px';
+      tip.style.top = (r.bottom + 6) + 'px';
+      requestAnimationFrame(() => {
+        tip.style.left = (r.left + r.width / 2 - tip.offsetWidth / 2) + 'px';
+        tip.classList.add('visible');
+      });
+      setTimeout(() => {
+        tip.classList.remove('visible');
+        setTimeout(() => tip.remove(), 260);
+      }, 2000);
+    }
+
+    function start() {
+      document.querySelectorAll('.desktop-icon').forEach(attach);
+    }
+    return { start };
+  })();
+
+  /* ============================================================
      Init
      ============================================================ */
   function init() {
@@ -2766,6 +3781,46 @@
 
     // Konami code
     KonamiEgg.start();
+
+    // Start menu accordion (submenus)
+    StartAccordion.wire();
+    const origStartHide = StartMenu.hide;
+    StartMenu.hide = function() {
+      StartAccordion.collapseAll();
+      origStartHide.call(this);
+    };
+
+    // Hook WindowManager.open for SnoopGuide unique-window tracking
+    // and lazy initialization for Minesweeper and Run dialog.
+    const origOpen = WindowManager.open;
+    WindowManager.open = function(id) {
+      const stateBefore = WindowManager.getState(id);
+      const wasOpen = stateBefore && stateBefore.open && !stateBefore.minimized;
+      origOpen.call(this, id);
+      if (!wasOpen) {
+        SnoopGuide.noteOpen(id);
+        if (id === 'minesweeper') MinesweeperBoard.build();
+        if (id === 'run') RunDialog.focus();
+      }
+    };
+
+    // Wire SnoopGuide buttons + Run dialog controls
+    SnoopGuide.wire();
+    RunDialog.wire();
+
+    // Idle screensaver
+    IdleScreensaver.start();
+
+    // Icon drag-and-reorder + drag-to-recycle
+    IconDragController.start();
+
+    // Cursor trails
+    CursorTrails.start();
+    const cursorBtn = document.getElementById('cursor-trails-toggle');
+    if (cursorBtn) cursorBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      CursorTrails.toggle();
+    });
 
     // Viewport changes
     window.addEventListener('resize', () => {

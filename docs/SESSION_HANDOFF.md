@@ -2,34 +2,35 @@
 
 ## Current State
 
-**Phase:** Site shipped. First full commit on main contains the desktop build plus SEO/GEO infrastructure.
+**Phase:** v1 site shipped with full Easter egg suite, privacy page, and copyright. Single-file desktop architecture intact.
 
-## What's Done (2026-05-15 session)
+## What's Done (2026-05-15 sessions)
 
-- Full desktop environment committed for the first time (index.html, favicon.svg, assets/og-image.png, .gitignore, assets/photos/ were all untracked before this commit).
-- SEO/GEO infrastructure pass: robots.txt, sitemap.xml, llms.txt, humans.txt, canonical link, Open Graph block, Twitter card block, JSON-LD Person schema.
-- External favicon.svg replaces the previous inline data-URI mark.
-- Identity facts unified across all seven metadata surfaces (see PD-012).
+### Earlier in the day
+- First commit of the actual site (was untracked until SEO/GEO session).
+- SEO/GEO infrastructure: robots.txt, sitemap.xml, llms.txt, humans.txt, canonical, Open Graph, Twitter card, JSON-LD Person.
+- External favicon.svg replaces inline data-URI.
 
-## What's Next (Top 3 Priorities for Next Session)
+### This session
+- Added 8 Easter eggs: Screensaver, Internet Explorer, Minesweeper, Drag-to-Recycle-Bin, Clippy / Snoop Guide, Run dialog, Desktop icon reorder, Cursor trails. All respect `prefers-reduced-motion`; all session-only state. Full inventory in `docs/EASTER_EGGS.md` (EE-005 through EE-012).
+- Restructured Start menu: click-expand accordion submenus (Programs → Games, Settings → Mouse). Added Run..., Internet Explorer, Privacy entries. Vertical rail now reads `© 2026 Andrew Christison`.
+- Created `/privacy.html`: standalone Win95-styled window page, plain-language privacy policy, footer with the full copyright notice. Added to `sitemap.xml`.
 
-1. **Live verification per Sticky 7.** Open the deployed site (and index.html locally) and walk every window: drag, minimize, close, restore, z-index stacking, taskbar clock, start menu, Konami code, all Easter eggs. CLI build could not verify any of this. Confirm OG image renders correctly in a LinkedIn / Slack / X preview tool.
-2. **Produce or confirm assets/og-image.png.** A file by that name is now committed and referenced from OG and Twitter tags. Verify it is a 1200x630 image that reads as a thumbnail (logo + name + "lifecycle marketing, Port Angeles" legible at small sizes). If it is a placeholder, replace it.
-3. **Content audit against reality.** Confirm role text ("Co-Founder and CEO" in JSON-LD), CropGraph description ("graph-native agriculture data tooling" in llms.txt), and sameAs list are accurate. Adjust llms.txt and JSON-LD if anything is off. These are the surfaces LLMs will quote back.
+## What's Next (Top 3 Priorities)
+
+1. **Live verification per Sticky 7.** I could not visually test from the CLI. Walk every Easter egg: drag an icon onto another and a different icon onto Recycle Bin, leave the page idle for 60s, type `goats` into Run, open 4 windows and meet Clippy, toggle cursor trails, expand each Start submenu. Confirm `prefers-reduced-motion` paths (set the OS toggle and replay). Watch for any z-index conflicts with the screensaver or Clippy.
+2. **Add Easter egg sound polish.** The existing SoundEngine has chime/click/softClose/unlock/crumple. Consider giving Clippy a distinctive entry tone and the Run dialog a soft "enter" beep on submit. Currently both just use `click`.
+3. **Decide on persistence (re-evaluate PD-014).** If you find yourself wanting cursor trails or a reordered desktop to survive a reload, that's a signal to flip the decision. Would require updating `privacy.html` to disclose the new localStorage key.
 
 ## Blocked
 
-- Browser-based verification: needs Andrew at the keyboard.
-- OG image production: art direction is a human call.
-
-## Repo Hygiene Notes
-
-- `assets/.DS_Store` got committed in this session because the user instructed "add all untracked files and commit everything." Consider adding `.DS_Store` to .gitignore next session and removing tracked instances (`git rm --cached assets/.DS_Store`).
+- Browser verification: needs Andrew at the keyboard.
+- OG image freshness: previously compressed to JPEG in a prior commit; meta tags still reference `og-image.png`. Worth confirming if the path needs to follow the format change.
 
 ## Key Decisions This Session
 
-PD-011 (SEO/GEO beyond original brief scope), PD-012 (one canonical source per identity fact). See docs/PRODUCT_DECISIONS.md.
+PD-013 (click-expand accordion over hover flyout) and PD-014 (Easter egg state is session-only). See `docs/PRODUCT_DECISIONS.md`.
 
 ---
 
-_Last updated: 2026-05-15. SEO/GEO infrastructure session via Claude Code._
+_Last updated: 2026-05-15. Easter eggs + privacy session via Claude Code._

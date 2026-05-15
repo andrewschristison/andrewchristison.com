@@ -109,3 +109,6 @@ Desktop experience is priority. Mobile gets a different, adapted experience (ver
 
 ### 2026-05-15: Full site commit + SEO/GEO infrastructure
 First commit of the actual site (index.html and most assets were untracked until now). Added robots.txt, sitemap.xml, llms.txt, humans.txt, canonical link, Open Graph block, Twitter card block, and JSON-LD Person schema in the head. External favicon.svg replaces the inline data-URI. Zero visible UI changes. See PD-011, PD-012.
+
+### 2026-05-15: Easter eggs + privacy + copyright
+Built 8 new Easter eggs (EE-005 through EE-012): Screensaver, Internet Explorer, Minesweeper, Drag-to-Recycle-Bin, Clippy / Snoop Guide, Run dialog, Desktop icon reorder, Cursor trails. Restructured the Start menu with click-expand accordion submenus (Programs/Games, Settings/Mouse) plus Run..., Internet Explorer, and Privacy entries. Added vertical "© 2026 Andrew Christison" rail. Created `/privacy.html` and added it to the sitemap. All Easter egg state is session-only; only `ac-sound` lives in localStorage. See PD-013, PD-014, and `docs/EASTER_EGGS.md`.

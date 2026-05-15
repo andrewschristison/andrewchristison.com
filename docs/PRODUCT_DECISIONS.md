@@ -66,3 +66,15 @@ _Architectural and design decisions with reasoning. When a decision is revisited
 **Decision:** Andrew's name, role, location, product list, and external links exist on seven surfaces (meta description, OG, Twitter, JSON-LD, sitemap, llms.txt, humans.txt). Each fact has one canonical phrasing; the surfaces echo it. The README for future edits: change a fact in one place mentally, then sweep the seven.
 **Why:** DRY applies to content as much as code. When a job title changes or a new product ships, the update should be mechanical, not a treasure hunt. Without this discipline these surfaces drift, and drift makes structured data worse than no structured data (an LLM citing a stale job title is worse than no citation).
 **Alternatives considered:** A build step that generates the metadata surfaces from a single YAML source. Rejected for v1: violates PD-010 (no build step) and the seven surfaces are small enough to maintain by hand. Reconsider if drift actually shows up.
+
+## PD-013: Start Menu Submenus Use Click-Expand Accordion (Not Hover Flyout)
+**Date:** May 15, 2026
+**Decision:** Programs and Settings (and their nested children Games and Mouse) expand in place when clicked, with the parent label staying visible. A chevron rotates 90 degrees on expand. No hover-triggered flyout menus.
+**Why:** Touch and reduced-pointer accessibility. A hover flyout is more faithful to Win95 but punishes touch users and anyone navigating by keyboard. Click-expand is robust across input modalities and adds keyboard-friendly aria-expanded semantics for free. The nostalgia hit is dimmer but the menu actually works for everyone.
+**Alternatives considered:** Hover flyout submenus (rejected for touch and a11y), flat menu with all leaves at top level (rejected as cluttered and loses the Win95 idiom entirely).
+
+## PD-014: Easter Egg State Is Session-Only
+**Date:** May 15, 2026
+**Decision:** Desktop icon arrangement (EE-011), cursor trails toggle (EE-012), Clippy-once-per-session flag (EE-009), and the screensaver idle timer all live in memory only. A page reload restores defaults. The only persisted preference on the site remains the sound on/off in `localStorage('ac-sound')`.
+**Why:** Two reasons. First, the privacy posture: privacy.html claims "no cookies, no analytics, no trackers" and lists only `ac-sound` as a localStorage user. Adding more localStorage keys for cosmetic state would require updating the privacy page and changes the surface area users have to trust. Second, the discovery-as-reward model: Easter eggs are more rewarding to find again than to find persisted. The icon reorder, in particular, gains charm from being a one-session sandcastle.
+**Alternatives considered:** Persist desktop icon order, cursor trails preference, and Clippy-dismissed flag to localStorage. Rejected on the privacy/cleanliness reasoning above. If a future change makes persistence valuable, update privacy.html and adopt a clear preference store (e.g., a single `ac-prefs` JSON key) rather than scattering keys.
