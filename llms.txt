@@ -1,0 +1,39 @@
+# Andrew Christison
+
+> Lifecycle marketing founder, builder, and homesteader based in Port Angeles, Washington. Co-founder of Retencity (Klaviyo Master Platinum Partner). Builder of Ask K, Pondlog, and CropGraph.
+
+Andrew Christison is a software builder and lifecycle marketing operator living in the rainshadow of Olympic National Park. Work and life share the same desk: a marketing agency, several shipped products, a 6.5 acre homestead, sixty layer hens, and a martial arts and running practice that goes back to childhood. This site is the index.
+
+## Who
+
+- Name: Andrew Christison
+- Location: Port Angeles, Washington, USA
+- Role: Co-founder and CEO, Retencity
+- Domain: lifecycle, retention, and email marketing; Klaviyo; hybrid retrieval-augmented generation; product strategy
+
+## Built
+
+- [Retencity](https://retencity.com): Klaviyo Master Platinum Partner lifecycle marketing agency. Co-founded with Amy Slater.
+- [Ask K](https://ask-k.retencity.com): hybrid RAG chat application over Klaviyo documentation.
+- [Pondlog](https://pondlog.co): place-aware nature data platform.
+- [CropGraph](https://cropgraph.com): graph-native agriculture data tooling.
+
+## Background
+
+- Lifecycle marketing operator. Klaviyo Master Platinum Partner.
+- Martial arts: about ten years. Southern Shaolin Kung Fu, then Kukkiwon Taekwondo with Hapkido, Judo, and One Step Fighting. First dan.
+- Running: forty plus PRs across the mile, 5K, 10K, half marathon, and marathon.
+- Homestead: 6.5 acres in the Olympic Peninsula rainshadow. Six Katahdin sheep, two Nigerian dwarf goats, six Khaki Campbell ducks, sixty layer hens, five roosters all named Steve, two cats.
+- Bus: 2002 school bus conversion, traveled in 2018 and 2019.
+
+## Links
+
+- Personal site: https://andrewchristison.com
+- Company: https://retencity.com
+- LinkedIn: https://www.linkedin.com/in/andrewchristison/
+- Bus project: https://www.instagram.com/neighborbus/
+- Homestead: https://www.instagram.com/theneighborshomestead/
+
+## Contact
+
+Reach out via Retencity or LinkedIn.

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- Pixel-art red toadstool mushroom, 16x16 grid -->
+  <!-- Red cap -->
+  <rect x="4" y="1" width="8" height="1" fill="#e8302a"/>
+  <rect x="3" y="2" width="10" height="1" fill="#e8302a"/>
+  <rect x="2" y="3" width="12" height="1" fill="#e8302a"/>
+  <rect x="2" y="4" width="12" height="1" fill="#e8302a"/>
+  <rect x="1" y="5" width="14" height="1" fill="#e8302a"/>
+  <rect x="1" y="6" width="14" height="1" fill="#e8302a"/>
+  <rect x="1" y="7" width="14" height="1" fill="#e8302a"/>
+  <rect x="2" y="8" width="12" height="1" fill="#e8302a"/>
+  <!-- White spots on cap -->
+  <rect x="5" y="3" width="2" height="2" fill="#ffffff"/>
+  <rect x="10" y="3" width="2" height="2" fill="#ffffff"/>
+  <rect x="7" y="5" width="3" height="2" fill="#ffffff"/>
+  <rect x="3" y="6" width="1" height="1" fill="#ffffff"/>
+  <rect x="13" y="6" width="1" height="1" fill="#ffffff"/>
+  <!-- Cap bottom edge / rim -->
+  <rect x="3" y="9" width="10" height="1" fill="#f5e6c8"/>
+  <!-- Stem -->
+  <rect x="5" y="10" width="6" height="1" fill="#f5e6c8"/>
+  <rect x="5" y="11" width="6" height="1" fill="#f0dbb8"/>
+  <rect x="5" y="12" width="6" height="1" fill="#f0dbb8"/>
+  <rect x="6" y="13" width="4" height="1" fill="#f0dbb8"/>
+  <!-- Eyes -->
+  <rect x="5" y="8" width="2" height="1" fill="#1a1a1a"/>
+  <rect x="9" y="8" width="2" height="1" fill="#1a1a1a"/>
+</svg>

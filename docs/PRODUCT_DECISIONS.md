@@ -54,3 +54,15 @@ _Architectural and design decisions with reasoning. When a decision is revisited
 **Date:** May 14, 2026
 **Decision:** Single HTML file with CSS and vanilla JS. No React, no build step, no dependencies beyond Google Fonts.
 **Why:** The site has no dynamic data, no auth, no API. A framework adds complexity without value. A single file deploys anywhere, loads fast, and has zero maintenance overhead. The interactivity (window management, sound) is complex but self-contained — vanilla JS handles it cleanly.
+
+## PD-011: SEO/GEO Infrastructure Beyond BRIEF.md Scope
+**Date:** May 15, 2026
+**Decision:** Added llms.txt, JSON-LD Person, Open Graph, Twitter card, canonical, sitemap, and robots.txt, going beyond the "basic meta tags" originally scoped as the SEO ceiling in BRIEF.md.
+**Why:** Discoverability matters even for an environment-first personal site. Recruiters, founders, and curious operators reach Andrew through Google, LinkedIn previews, and increasingly through LLM search (ChatGPT, Perplexity, Claude). Without structured data and llms.txt the site renders as a Win95 curiosity that LLMs struggle to summarize accurately. With them, the same site doubles as a machine-legible identity index. No visible UI cost.
+**Alternatives considered:** Sticking strictly to BRIEF.md's "basic meta tags" rule. Rejected because the cost of the additional tags is zero (head-only) and the upside is non-trivial as LLM-mediated discovery grows. BRIEF.md updated implicitly via this PD.
+
+## PD-012: One Canonical Source Per Identity Fact
+**Date:** May 15, 2026
+**Decision:** Andrew's name, role, location, product list, and external links exist on seven surfaces (meta description, OG, Twitter, JSON-LD, sitemap, llms.txt, humans.txt). Each fact has one canonical phrasing; the surfaces echo it. The README for future edits: change a fact in one place mentally, then sweep the seven.
+**Why:** DRY applies to content as much as code. When a job title changes or a new product ships, the update should be mechanical, not a treasure hunt. Without this discipline these surfaces drift, and drift makes structured data worse than no structured data (an LLM citing a stale job title is worse than no citation).
+**Alternatives considered:** A build step that generates the metadata surfaces from a single YAML source. Rejected for v1: violates PD-010 (no build step) and the seven surfaces are small enough to maintain by hand. Reconsider if drift actually shows up.

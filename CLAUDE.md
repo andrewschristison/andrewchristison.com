@@ -107,4 +107,5 @@ Desktop experience is priority. Mobile gets a different, adapted experience (ver
 
 ## Session Notes
 
-_Updated at session close per Sticky 3._
+### 2026-05-15: Full site commit + SEO/GEO infrastructure
+First commit of the actual site (index.html and most assets were untracked until now). Added robots.txt, sitemap.xml, llms.txt, humans.txt, canonical link, Open Graph block, Twitter card block, and JSON-LD Person schema in the head. External favicon.svg replaces the inline data-URI. Zero visible UI changes. See PD-011, PD-012.

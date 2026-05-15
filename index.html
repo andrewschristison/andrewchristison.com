@@ -1,0 +1,2794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Andrew Christison. Lifecycle marketing founder at Retencity, builder of Ask K, Pondlog, and CropGraph. Port Angeles, WA homesteader and runner.">
+<link rel="canonical" href="https://andrewchristison.com">
+<title>andrewchristison.com</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="andrewchristison.com">
+<meta property="og:title" content="Andrew Christison · Lifecycle Marketing, Port Angeles, WA">
+<meta property="og:description" content="Lifecycle marketing founder at Retencity. Builder of Ask K, Pondlog, and CropGraph. Homesteader in the rainshadow of Olympic National Park.">
+<meta property="og:url" content="https://andrewchristison.com">
+<meta property="og:image" content="https://andrewchristison.com/assets/og-image.png">
+<meta property="og:image:alt" content="A Windows 95 style desktop with windows about Andrew Christison's work, homestead, and Port Angeles.">
+<meta property="og:locale" content="en_US">
+<meta property="profile:first_name" content="Andrew">
+<meta property="profile:last_name" content="Christison">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Andrew Christison · Lifecycle Marketing, Port Angeles, WA">
+<meta name="twitter:description" content="Lifecycle marketing founder at Retencity. Builder of Ask K, Pondlog, and CropGraph. Homesteader in the rainshadow of Olympic National Park.">
+<meta name="twitter:image" content="https://andrewchristison.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="A Windows 95 style desktop with windows about Andrew Christison's work, homestead, and Port Angeles.">
+
+<!-- JSON-LD: Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Andrew Christison",
+  "url": "https://andrewchristison.com",
+  "image": "https://andrewchristison.com/assets/og-image.png",
+  "jobTitle": "Co-Founder and CEO",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Retencity",
+    "url": "https://retencity.com"
+  },
+  "homeLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Port Angeles",
+      "addressRegion": "WA",
+      "addressCountry": "US"
+    }
+  },
+  "knowsAbout": [
+    "Lifecycle marketing",
+    "Email marketing",
+    "Retention marketing",
+    "Klaviyo",
+    "Hybrid retrieval-augmented generation",
+    "Product strategy",
+    "Martial arts",
+    "Distance running",
+    "Homesteading"
+  ],
+  "sameAs": [
+    "https://retencity.com",
+    "https://ask-k.retencity.com",
+    "https://pondlog.co",
+    "https://cropgraph.com",
+    "https://www.linkedin.com/in/andrewchristison/",
+    "https://www.instagram.com/neighborbus/",
+    "https://www.instagram.com/theneighborshomestead/"
+  ]
+}
+</script>
+<style>
+  /* ============================================================
+     Design tokens
+     Warm Olympic Peninsula palette, OKLCH throughout.
+     ============================================================ */
+  :root {
+    /* surfaces */
+    --paper:           oklch(94% 0.012 82);
+    --paper-deep:      oklch(89% 0.018 80);
+    --chrome:          oklch(86% 0.015 80);
+    --chrome-deep:     oklch(78% 0.015 78);
+    --bevel-light:     oklch(97% 0.010 85);
+    --bevel-dark:      oklch(54% 0.022 68);
+    --bevel-shadow:    oklch(34% 0.030 60 / 0.22);
+
+    /* ink */
+    --ink:             oklch(22% 0.025 60);
+    --ink-soft:        oklch(38% 0.025 65);
+    --ink-faint:       oklch(54% 0.018 65);
+
+    /* title bars */
+    --title-active:    oklch(34% 0.065 155);
+    --title-active-2:  oklch(42% 0.070 160);
+    --title-inactive:  oklch(68% 0.012 75);
+    --title-text:      oklch(96% 0.008 85);
+
+    /* accent */
+    --accent:          oklch(56% 0.155 42);
+    --accent-soft:     oklch(72% 0.080 45);
+    --accent-deep:     oklch(46% 0.165 38);
+
+    /* wallpaper wash (overlay over photo) */
+    --wash-1:          oklch(40% 0.07 150 / 0.40);
+    --wash-2:          oklch(28% 0.06 145 / 0.55);
+    --wash-3:          oklch(22% 0.05 140 / 0.60);
+
+    /* type — web-safe system stack (no Google Fonts) */
+    --font-mono:  Tahoma, "DejaVu Sans", Verdana, "Geneva", sans-serif;
+    --font-serif: Georgia, "Times New Roman", Times, serif;
+    --font-code:  Menlo, Monaco, "Cascadia Code", Consolas, "Courier New", monospace;
+
+    --text-meta:   0.6875rem;
+    --text-chrome: 0.75rem;
+    --text-title:  0.8125rem;
+    --text-body:   1.0625rem;
+    --text-lead:   1.25rem;
+    --text-h2:     1.5rem;
+    --text-h1:     2rem;
+
+    /* spacing */
+    --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+    --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+
+    /* motion */
+    --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --dur-press:   120ms;
+    --dur-snappy:  180ms;
+    --dur-exit:    140ms;
+    --dur-window:  220ms;
+    --dur-restore: 200ms;
+
+    /* z-index scale */
+    --z-desktop: 1;
+    --z-icon:    5;
+    --z-taskbar: 100;
+    --z-start:   110;
+    --z-overlay: 200;
+
+    --taskbar-h: 38px;
+  }
+
+  /* dusk mode (Konami) — warms the wash to sunset */
+  body.dusk {
+    --wash-1: oklch(48% 0.14 32 / 0.50);
+    --wash-2: oklch(32% 0.12 360 / 0.65);
+    --wash-3: oklch(22% 0.10 340 / 0.70);
+  }
+
+  /* ============================================================
+     Reset
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { height: 100%; }
+  body {
+    min-height: 100%;
+    overflow: hidden;
+    font-family: var(--font-serif);
+    color: var(--ink);
+    background-color: oklch(30% 0.06 145);
+    background-image:
+      radial-gradient(ellipse at 75% 18%, oklch(72% 0.10 80 / 0.28) 0%, transparent 45%),
+      linear-gradient(178deg, var(--wash-1) 0%, var(--wash-2) 55%, var(--wash-3) 100%),
+      url("assets/photos/maisie_goats_desktopbackground.jpeg");
+    background-size: auto, auto, cover;
+    background-position: center, center, center 62%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 600ms var(--ease-out);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    user-select: none;
+  }
+  button { font-family: inherit; color: inherit; cursor: pointer; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover, a:focus-visible { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+  ul, ol { padding: 0; margin: 0; list-style: none; }
+  h1, h2, h3, h4, p { margin: 0; }
+  img, svg { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* wallpaper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--z-desktop);
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.92 0 0 0 0 0.82 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.30;
+    mix-blend-mode: overlay;
+  }
+  /* edge vignette — screen-depth */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--z-desktop);
+    background:
+      radial-gradient(ellipse at 50% 60%, transparent 55%, oklch(15% 0.04 150 / 0.45) 100%);
+  }
+
+  /* desktop is everything except the taskbar */
+  #desktop {
+    position: fixed;
+    inset: 0 0 var(--taskbar-h) 0;
+    z-index: var(--z-icon);
+  }
+
+  /* ============================================================
+     Bevel utilities (warm Win95 chrome)
+     ============================================================ */
+  .bevel-out {
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+  }
+  .bevel-out-thick {
+    box-shadow:
+      inset 2px 2px 0 var(--bevel-light),
+      inset -2px -2px 0 var(--bevel-dark);
+  }
+  .bevel-in {
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+
+  /* ============================================================
+     Desktop icons
+     ============================================================ */
+  #icon-grid {
+    position: absolute;
+    top: var(--s-4);
+    left: var(--s-4);
+    display: grid;
+    grid-template-columns: repeat(5, 96px);
+    gap: var(--s-2);
+    z-index: var(--z-icon);
+  }
+  .desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-1);
+    padding: var(--s-1);
+    border: 1px dashed transparent;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--title-text);
+    text-shadow: 0 1px 2px oklch(20% 0.03 60 / 0.6);
+    cursor: pointer;
+    transition: transform var(--dur-press) var(--ease-out);
+  }
+  .desktop-icon:hover,
+  .desktop-icon:focus-visible {
+    border-color: oklch(96% 0.01 85 / 0.55);
+    outline: none;
+  }
+  .desktop-icon:active { transform: scale(0.97); }
+  .desktop-icon .icon-art {
+    width: 56px; height: 56px;
+    display: grid; place-items: center;
+    filter: drop-shadow(0 1px 2px oklch(20% 0.03 60 / 0.4));
+  }
+  .desktop-icon .icon-art svg { width: 100%; height: 100%; }
+  .desktop-icon .icon-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  /* ============================================================
+     Windows
+     ============================================================ */
+  .window {
+    position: absolute;
+    background: var(--chrome);
+    color: var(--ink);
+    border: 1px solid var(--bevel-dark);
+    box-shadow:
+      0 8px 32px var(--bevel-shadow),
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+  .window[hidden] { display: none; }
+  .window.opening {
+    animation: window-open var(--dur-window) var(--ease-out) both;
+  }
+  .window.closing {
+    animation: window-close var(--dur-exit) var(--ease-out) both;
+  }
+  .window.minimizing {
+    animation: window-minimize var(--dur-restore) var(--ease-out) both;
+  }
+  @keyframes window-open {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes window-close {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.97); }
+  }
+  @keyframes window-minimize {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.92) translateY(40px); }
+  }
+
+  .title-bar {
+    height: 26px;
+    padding: 0 4px 0 8px;
+    background: linear-gradient(
+      to right,
+      var(--title-active) 0%,
+      var(--title-active-2) 100%
+    );
+    color: var(--title-text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: grab;
+    user-select: none;
+    flex-shrink: 0;
+    transition: background 180ms var(--ease-out), filter 180ms var(--ease-out);
+  }
+  .window:not(.window--active) .title-bar {
+    filter: saturate(0.5);
+  }
+  .title-bar.dragging { cursor: grabbing; }
+  .window:not(.window--active) .title-bar {
+    background: var(--title-inactive);
+  }
+  .title-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-title);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 0;
+    pointer-events: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .title-buttons {
+    display: flex;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+  .btn-title {
+    width: 20px; height: 18px;
+    border: none;
+    padding: 0;
+    background: var(--chrome);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+    transition: transform var(--dur-press) var(--ease-out);
+  }
+  .btn-title:active {
+    transform: scale(0.94);
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+  .btn-close:hover {
+    background: oklch(72% 0.12 35);
+    color: var(--title-text);
+  }
+
+  .window-content {
+    flex: 1;
+    overflow: auto;
+    background: var(--paper);
+    margin: 2px;
+    padding: var(--s-4);
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--ink);
+    cursor: default;
+    user-select: text;
+  }
+  .window-content::-webkit-scrollbar { width: 14px; }
+  .window-content::-webkit-scrollbar-track { background: var(--chrome); }
+  .window-content::-webkit-scrollbar-thumb {
+    background: var(--chrome-deep);
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+  }
+
+  /* ============================================================
+     Window content patterns
+     ============================================================ */
+  .lead {
+    font-size: var(--text-lead);
+    line-height: 1.4;
+    margin-bottom: var(--s-3);
+  }
+  .body-p { margin-bottom: var(--s-3); }
+  .body-p:last-child { margin-bottom: 0; }
+  .quiet { color: var(--ink-soft); font-style: italic; }
+  .external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: var(--text-chrome);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: var(--s-2);
+  }
+
+  /* photo placeholders */
+  .photo {
+    position: relative;
+    background:
+      linear-gradient(135deg, oklch(85% 0.025 75), oklch(76% 0.030 68)),
+      var(--paper-deep);
+    border: 1px solid oklch(70% 0.025 65);
+    overflow: hidden;
+  }
+  .photo::after {
+    content: "[ photo ]";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: oklch(48% 0.025 65);
+    letter-spacing: 0.14em;
+  }
+  .photo--portrait { aspect-ratio: 3 / 4; }
+  .photo--landscape { aspect-ratio: 4 / 3; }
+  .photo--wide { aspect-ratio: 16 / 9; }
+
+  /* About window */
+  #win-about .window-content {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: var(--s-4);
+    align-items: start;
+  }
+  .about-text { font-size: 0.9375rem; line-height: 1.55; }
+  .about-text .name {
+    font-weight: 700;
+    margin-bottom: var(--s-1);
+  }
+  .about-text .place {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: var(--s-3);
+  }
+  .about-text .body { margin-bottom: var(--s-3); }
+  .about-hello {
+    font-family: var(--font-mono);
+    font-size: var(--text-chrome);
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+
+  /* Work window */
+  #win-work .window-content { padding: var(--s-4); }
+  .work-intro {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: var(--s-3);
+  }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-3);
+  }
+  .work-card {
+    display: block;
+    background: var(--paper-deep);
+    padding: var(--s-3) var(--s-4);
+    color: var(--ink);
+    border: 1px solid oklch(72% 0.020 70);
+    text-decoration: none;
+    position: relative;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    transition: transform var(--dur-press) var(--ease-out),
+                background var(--dur-snappy) var(--ease-out);
+  }
+  .work-card:hover {
+    background: oklch(91% 0.022 78);
+    transform: translateY(-1px);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .work-card:active { transform: scale(0.97); }
+  .work-card--anchor {
+    grid-column: span 3;
+    background:
+      linear-gradient(135deg, oklch(90% 0.025 78), oklch(85% 0.030 72));
+    border-color: oklch(64% 0.030 60);
+  }
+  .work-card-name {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    margin-bottom: var(--s-1);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-3);
+    white-space: nowrap;
+  }
+  .work-card-arrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    color: var(--accent);
+    transition: transform var(--dur-snappy) var(--ease-out);
+  }
+  .work-card:hover .work-card-arrow { transform: translateX(3px); }
+  .work-card-desc {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .work-card--anchor .work-card-name { font-size: var(--text-h2); }
+  .work-card--anchor .work-card-desc { font-size: var(--text-body); color: var(--ink); }
+
+  /* Movement window */
+  .movement-section { margin-bottom: var(--s-5); }
+  .movement-section:last-child { margin-bottom: 0; }
+  .movement-section h3 {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--s-3);
+    padding-bottom: var(--s-1);
+    border-bottom: 1px solid oklch(72% 0.020 70);
+  }
+  .movement-list li {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: var(--s-3);
+    padding: var(--s-2) 0;
+    align-items: baseline;
+  }
+  .movement-when {
+    font-family: var(--font-mono);
+    font-size: var(--text-chrome);
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .movement-what {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  /* Homestead window */
+  .homestead-photo { margin-bottom: var(--s-4); }
+  .homestead-text { margin-bottom: var(--s-5); }
+  .animal-census {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-2) var(--s-4);
+    margin-bottom: var(--s-5);
+    padding: var(--s-3) var(--s-4);
+    background: var(--paper-deep);
+    border-left: 2px solid var(--accent);
+  }
+  .animal-census li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    font-size: 0.9375rem;
+  }
+  .animal-census .count {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum";
+    font-weight: 500;
+    color: var(--accent-deep);
+    min-width: 24px;
+    text-align: right;
+  }
+  .animal-census .kind { color: var(--ink); }
+
+  /* The Bus window */
+  .bus-photo { margin-bottom: var(--s-4); }
+  .bus-text p { margin-bottom: var(--s-2); }
+
+  /* Writing Space */
+  #win-writing .window-content {
+    padding: 0;
+    background:
+      linear-gradient(180deg, oklch(93% 0.014 78), oklch(91% 0.016 76));
+    position: relative;
+    min-height: 480px;
+  }
+  .writing-canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    padding: var(--s-4);
+  }
+  .writing-canvas::before {
+    content: "shelf";
+    position: absolute;
+    top: var(--s-2);
+    right: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-faint);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .writing-object {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: rotate(var(--rot, 0deg));
+    background: oklch(96% 0.014 82);
+    padding: var(--s-3) var(--s-4);
+    max-width: 240px;
+    box-shadow:
+      0 1px 0 oklch(75% 0.020 70),
+      0 6px 14px oklch(30% 0.03 60 / 0.18);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .writing-object p { margin: 0; }
+
+  /* Notepad */
+  #win-notepad .window-content {
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        oklch(96% 0.014 82) 0px,
+        oklch(96% 0.014 82) 27px,
+        oklch(86% 0.020 78) 27px,
+        oklch(86% 0.020 78) 28px
+      );
+    padding: var(--s-5);
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+  .notepad-paper p {
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: var(--s-2);
+  }
+  .notepad-paper p:last-child { margin-bottom: 0; color: var(--ink-soft); }
+
+  /* Recycle Bin */
+  #win-recycle .window-content { padding: var(--s-3); }
+  .recycle-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-2) var(--s-3);
+    background: var(--paper-deep);
+    border: 1px solid oklch(76% 0.020 70);
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .recycle-icon {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .recycle-empty {
+    margin-top: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+
+  /* ============================================================
+     Taskbar
+     ============================================================ */
+  #taskbar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: var(--taskbar-h);
+    background: var(--chrome-deep);
+    box-shadow:
+      inset 0 1px 0 var(--bevel-light),
+      0 -2px 8px oklch(20% 0.03 60 / 0.2);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    gap: var(--s-1);
+    z-index: var(--z-taskbar);
+  }
+  #start-btn {
+    height: 30px;
+    padding: 0 var(--s-3) 0 var(--s-2);
+    background: var(--chrome);
+    border: none;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-title);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+    transition: transform var(--dur-press) var(--ease-out);
+  }
+  #start-btn:active,
+  #start-btn[aria-expanded="true"] {
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+    transform: translateY(1px);
+  }
+  .start-mark {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 1.5px;
+    width: 14px; height: 14px;
+  }
+  .start-mark span {
+    background: var(--accent);
+    display: block;
+  }
+  #taskbar-windows {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+    margin: 0 var(--s-2);
+    overflow: hidden;
+  }
+  .taskbar-pill {
+    height: 30px;
+    flex: 0 1 180px;
+    min-width: 80px;
+    background: var(--chrome);
+    border: none;
+    padding: 0 var(--s-3);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-chrome);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+    transition: transform var(--dur-press) var(--ease-out);
+  }
+  .taskbar-pill.active {
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+    background: var(--chrome-deep);
+  }
+  .taskbar-pill.minimized { color: var(--ink-soft); }
+  .taskbar-pill:active { transform: translateY(1px); }
+  #sound-toggle, #clock {
+    height: 30px;
+    padding: 0 var(--s-3);
+    background: var(--chrome);
+    border: none;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-chrome);
+    font-weight: 500;
+    display: grid;
+    place-items: center;
+    box-shadow:
+      inset 1px 1px 0 var(--bevel-dark),
+      inset -1px -1px 0 var(--bevel-light);
+  }
+  #sound-toggle {
+    width: 36px;
+    transition: color var(--dur-snappy) var(--ease-out);
+  }
+  #sound-toggle.sound-on { color: var(--accent); }
+  #clock {
+    font-feature-settings: "tnum";
+    letter-spacing: 0.04em;
+    min-width: 80px;
+  }
+
+  /* ============================================================
+     Start menu
+     ============================================================ */
+  #start-menu {
+    position: fixed;
+    bottom: var(--taskbar-h);
+    left: 4px;
+    width: 220px;
+    background: var(--chrome);
+    box-shadow:
+      0 -6px 20px oklch(20% 0.03 60 / 0.3),
+      inset 1px 1px 0 var(--bevel-light),
+      inset -1px -1px 0 var(--bevel-dark);
+    padding: 4px;
+    z-index: var(--z-start);
+    transform-origin: bottom left;
+  }
+  #start-menu[hidden] { display: none; }
+  #start-menu.opening { animation: start-open 180ms var(--ease-out) both; }
+  #start-menu.closing { animation: start-close 120ms var(--ease-out) both; }
+  @keyframes start-open {
+    from { opacity: 0; transform: scale(0.97) translateY(4px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes start-close {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.98) translateY(2px); }
+  }
+  .start-rail {
+    position: absolute;
+    left: 4px; top: 4px; bottom: 4px;
+    width: 28px;
+    background: linear-gradient(180deg, var(--title-active), var(--title-active-2));
+    display: grid;
+    place-items: end center;
+    padding-bottom: var(--s-3);
+  }
+  .start-rail-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-chrome);
+    font-weight: 500;
+    color: var(--title-text);
+    letter-spacing: 0.2em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .start-list {
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .start-list li button,
+  .start-list li a {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    width: 100%;
+    padding: 6px 10px;
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-align: left;
+    text-decoration: none;
+  }
+  .start-list li button:hover,
+  .start-list li button:focus-visible,
+  .start-list li a:hover,
+  .start-list li a:focus-visible {
+    background: var(--title-active);
+    color: var(--title-text);
+    outline: none;
+    text-decoration: none;
+  }
+  .start-list .start-separator {
+    height: 1px;
+    background: var(--bevel-dark);
+    margin: 4px 8px;
+    box-shadow: 0 1px 0 var(--bevel-light);
+  }
+  .start-icon {
+    width: 18px; height: 18px;
+    display: grid; place-items: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .start-list li button:hover .start-icon,
+  .start-list li a:hover .start-icon { color: var(--title-text); }
+
+  /* ============================================================
+     Shut down overlay
+     ============================================================ */
+  #shutdown-overlay {
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, oklch(28% 0.02 60), oklch(18% 0.02 60));
+    color: var(--paper);
+    display: grid;
+    place-items: center;
+    z-index: var(--z-overlay);
+    cursor: pointer;
+    animation: fade-in 400ms var(--ease-out) both;
+  }
+  #shutdown-overlay[hidden] { display: none; }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  .shutdown-message { text-align: center; padding: var(--s-6); }
+  .shutdown-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.2;
+    margin-bottom: var(--s-3);
+  }
+  .shutdown-sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-chrome);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: oklch(72% 0.02 70);
+  }
+
+  /* ============================================================
+     Reduced motion
+     ============================================================ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .window.opening, .window.closing, .window.minimizing {
+      animation: fade-in 0.01ms both;
+    }
+  }
+
+  /* ============================================================
+     Hover gating for touch
+     ============================================================ */
+  @media (hover: none) {
+    .desktop-icon:hover { border-color: transparent; }
+    .work-card:hover { transform: none; }
+  }
+
+  /* ============================================================
+     Photos (real images replace placeholders where wired)
+     ============================================================ */
+  .photo-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: transparent;
+  }
+  .photo-frame {
+    position: relative;
+    overflow: hidden;
+    background: oklch(80% 0.020 70);
+    border: 1px solid oklch(64% 0.025 65);
+    box-shadow:
+      inset 0 0 0 2px oklch(96% 0.014 82),
+      0 1px 2px oklch(20% 0.03 60 / 0.25);
+  }
+  .photo-frame--portrait { aspect-ratio: 3 / 4; }
+  .photo-frame--landscape { aspect-ratio: 4 / 3; }
+  .photo-frame--wide { aspect-ratio: 16 / 9; }
+  .photo-frame--square { aspect-ratio: 1 / 1; }
+
+  /* Per-window text personality lives in the element-specific rules below
+     (Bus lead italic, Writing notes italic, Recycle items italic, etc).
+     Georgia has no variable axes — differentiation comes from weight,
+     italic, size, and color where each element is styled. */
+
+  /* ============================================================
+     About — bigger photo, named WONK, structured intro
+     ============================================================ */
+  #win-about .window-content {
+    grid-template-columns: 116px 1fr;
+    gap: var(--s-4);
+    padding: var(--s-4);
+  }
+  /* About photo uses default contain — no offset needed when full image shows */
+  .about-text .name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: var(--s-1);
+  }
+  .about-text .body {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* ============================================================
+     Work — per-card brand-evocative accents
+     ============================================================ */
+  .work-card {
+    border-left-width: 4px;
+    border-left-style: solid;
+    transition: transform var(--dur-press) var(--ease-out),
+                background var(--dur-snappy) var(--ease-out),
+                border-color var(--dur-snappy) var(--ease-out);
+  }
+  .work-card--anchor .work-card-name { font-size: var(--text-h2); }
+
+  .work-card--retencity {
+    border-left-color: oklch(40% 0.16 25);
+    background: linear-gradient(135deg, oklch(92% 0.020 70), oklch(86% 0.030 60));
+  }
+  .work-card--retencity .work-card-name,
+  .work-card--retencity .work-card-arrow { color: oklch(38% 0.16 22); }
+
+  /* visually-hidden text (kept in accessibility tree) */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* logo row (Retencity / Ask K — image-based) */
+  .work-card-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--s-2);
+    gap: var(--s-3);
+    min-height: 28px;
+  }
+  .work-card-logo img {
+    display: block;
+    height: 26px;
+    width: auto;
+    max-width: 100%;
+  }
+  .work-card--anchor .work-card-logo img { height: 40px; }
+  .work-card-logo .work-card-arrow {
+    flex-shrink: 0;
+  }
+
+  /* mark + name row (Pondlog / CropGraph — SVG-based) */
+  .work-card-name-text {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+  }
+  .work-card-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+  }
+  .work-card-mark svg { width: 100%; height: 100%; display: block; }
+
+  /* container variant — non-clickable card with nested links */
+  .work-card--container { cursor: default; }
+  .work-card--container:hover { transform: none; }
+  .work-card--container:active { transform: none; }
+  .work-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--dur-snappy) var(--ease-out);
+  }
+  .work-card-link:hover { text-decoration: none; }
+  .work-card-link:hover .work-card-arrow { transform: translateX(3px); }
+
+  /* Featured-on podcast cluster */
+  .work-podcasts {
+    margin-top: var(--s-3);
+    padding-top: var(--s-3);
+    border-top: 1px dashed oklch(60% 0.030 60);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-2) var(--s-4);
+  }
+  .podcasts-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+  .podcast-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-serif);
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--dur-snappy) var(--ease-out),
+                transform var(--dur-press) var(--ease-out);
+  }
+  .podcast-link:hover {
+    color: oklch(38% 0.16 22);
+    text-decoration: none;
+  }
+  .podcast-link:active { transform: scale(0.97); }
+  .podcast-icon {
+    width: 11px;
+    height: 11px;
+    color: oklch(48% 0.14 30);
+    flex-shrink: 0;
+    transition: color var(--dur-snappy) var(--ease-out);
+  }
+  .podcast-link:hover .podcast-icon { color: oklch(38% 0.16 22); }
+
+  .work-card--askk {
+    border-left-color: oklch(50% 0.09 230);
+  }
+  .work-card--askk .work-card-name,
+  .work-card--askk .work-card-arrow { color: oklch(40% 0.10 230); }
+
+  .work-card--pondlog {
+    border-left-color: oklch(50% 0.08 145);
+  }
+  .work-card--pondlog .work-card-name,
+  .work-card--pondlog .work-card-arrow { color: oklch(40% 0.09 145); }
+
+  /* Ask K — terminal/dark brand match */
+  .work-card--askk {
+    background: #0a0a0a;
+    border: 1px solid #064e3b;
+    border-left: 4px solid #10b981;
+    color: #10b981;
+    font-family: var(--font-code);
+    text-transform: lowercase;
+    padding: var(--s-4);
+  }
+  .work-card--askk:hover { background: #0a0a0a; }
+  .work-card--askk .askk-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--s-3);
+    padding-top: var(--s-1);
+  }
+  .work-card--askk .askk-mark {
+    font-family: var(--font-code);
+    font-size: 0.95rem;
+    color: #34d399;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+  }
+  .work-card--askk .askk-prompt { color: #047857; margin-right: 0.4em; }
+  .work-card--askk .askk-cursor {
+    display: inline-block;
+    width: 0.45em;
+    height: 0.95em;
+    background: #34d399;
+    margin-left: 2px;
+    vertical-align: text-top;
+    animation: blink 1s steps(1, end) infinite;
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  .work-card--askk .work-card-arrow { color: #34d399; }
+  .work-card--askk .work-card-desc {
+    color: rgba(16, 185, 129, 0.85);
+    font-family: var(--font-code);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    text-transform: lowercase;
+  }
+
+  /* Pondlog — leaf + monospace + cream */
+  .work-card--pondlog {
+    background: oklch(96% 0.020 95);
+    border: 1px solid oklch(72% 0.030 145);
+    border-left: 4px solid oklch(50% 0.10 145);
+    font-family: var(--font-code);
+    text-transform: lowercase;
+  }
+  .work-card--pondlog:hover { background: oklch(94% 0.025 95); }
+  .work-card--pondlog .work-card-name {
+    font-family: var(--font-code);
+    font-weight: 400;
+    text-transform: lowercase;
+    color: oklch(38% 0.10 145);
+  }
+  .work-card--pondlog .work-card-arrow { color: oklch(48% 0.12 145); font-family: var(--font-code); }
+  .work-card--pondlog .work-card-desc {
+    color: oklch(40% 0.06 145);
+    font-family: var(--font-code);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+  .pondlog-leaf {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    margin-right: 6px;
+    font-style: normal;
+  }
+
+  /* CropGraph — cream + sprout from the actual favicon */
+  .work-card--cropgraph {
+    background: #faf6ed;
+    border: 1px solid oklch(78% 0.040 95);
+    border-left: 4px solid #6db740;
+  }
+  .work-card--cropgraph:hover { background: #f6f0e0; }
+  .work-card--cropgraph .work-card-name {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: #4a5d2e;
+  }
+  .work-card--cropgraph .work-card-arrow { color: #6db740; }
+  .work-card--cropgraph .work-card-desc { color: #4a5d2e; }
+  .work-card--cropgraph .work-card-mark { color: #4a5d2e; }
+
+  /* ============================================================
+     Movement — timeline with dots
+     ============================================================ */
+  .movement-section { position: relative; padding-left: var(--s-5); margin-bottom: var(--s-5); }
+  .movement-section::before {
+    content: "";
+    position: absolute;
+    left: 7px; top: 18px; bottom: 0;
+    width: 1px;
+    background: oklch(72% 0.022 70);
+  }
+  .movement-section h3 {
+    position: relative;
+    padding-bottom: var(--s-2);
+    border-bottom: none;
+    color: var(--accent);
+  }
+  .movement-section h3::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--s-5) + 4px);
+    top: 4px;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--accent);
+    transform: rotate(45deg);
+  }
+  .movement-photo {
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+    margin: var(--s-2) 0 var(--s-3);
+    border: 1px solid oklch(48% 0.04 60);
+    background: oklch(34% 0.04 60);
+    overflow: hidden;
+  }
+  .movement-photo .photo-img {
+    background: transparent;
+  }
+  .movement-list li {
+    position: relative;
+    padding: var(--s-1) 0 var(--s-1) var(--s-3);
+  }
+  .movement-list li::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--s-5) + 7px);
+    top: 14px;
+    width: 4px; height: 4px;
+    background: var(--ink-faint);
+    border-radius: 50%;
+  }
+
+  /* ============================================================
+     Running — PR tables with tabular nums, photo strip
+     ============================================================ */
+  .movement-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-bottom: var(--s-4);
+  }
+  .movement-photo-tile {
+    aspect-ratio: 4 / 3;
+  }
+  .prs-section { margin-bottom: var(--s-4); }
+  .prs-section:last-child { margin-bottom: 0; }
+  .prs-section h3 {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--s-2);
+    padding-bottom: var(--s-1);
+    border-bottom: 1px solid oklch(72% 0.020 70);
+  }
+  .prs-list li {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: var(--s-3);
+    padding: var(--s-1) 0;
+    align-items: baseline;
+    font-size: 0.9375rem;
+  }
+  .pr-time {
+    font-family: var(--font-code);
+    font-feature-settings: "tnum";
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+  }
+  .pr-distance {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ============================================================
+     Martial Arts — reuse movement-section timeline pattern
+     ============================================================ */
+  /* (movement-section CSS below carries over) */
+
+  /* ============================================================
+     Homestead — organic photo mosaic + serif numerals
+     ============================================================ */
+  #win-homestead .window-content { padding: var(--s-4); }
+  .homestead-mosaic {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: var(--s-4);
+  }
+  .homestead-mosaic .photo-frame {
+    aspect-ratio: 4 / 3;
+  }
+  .homestead-text { margin-bottom: var(--s-4); }
+  .homestead-text .lead {
+    font-weight: 700;
+    font-style: italic;
+  }
+  .animal-census {
+    grid-template-columns: repeat(3, 1fr);
+    background: oklch(93% 0.018 80);
+    border-left: 3px solid oklch(48% 0.09 145);
+    margin-bottom: var(--s-4);
+  }
+  .animal-census .count {
+    font-family: var(--font-serif);
+    font-feature-settings: "tnum";
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: oklch(38% 0.10 145);
+    min-width: 32px;
+    text-align: right;
+  }
+  .animal-census .kind {
+    font-size: 0.875rem;
+    color: var(--ink);
+  }
+
+  /* ============================================================
+     The Bus — hero photo, detail strip
+     ============================================================ */
+  #win-bus .window-content { padding: 0; display: flex; flex-direction: column; }
+  .bus-hero {
+    aspect-ratio: 21 / 10;
+    border-bottom: 1px solid oklch(64% 0.025 65);
+    overflow: hidden;
+    background: oklch(28% 0.04 60);
+  }
+  .bus-body {
+    padding: var(--s-4);
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    gap: var(--s-4);
+    align-items: end;
+  }
+  .bus-body .lead {
+    font-style: italic;
+    margin-bottom: var(--s-1);
+  }
+  .bus-route {
+    height: 28px;
+    border-top: 2px dashed oklch(60% 0.10 60);
+    position: relative;
+    margin: var(--s-3) 0 var(--s-2);
+  }
+  .bus-route::before, .bus-route::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .bus-route::before { left: 0; }
+  .bus-route::after { right: 0; }
+  .bus-route span {
+    position: absolute;
+    top: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .bus-route span.left { left: 16px; }
+  .bus-route span.right { right: 16px; }
+  .bus-detail {
+    aspect-ratio: 1 / 1;
+    width: 100px;
+  }
+
+  /* ============================================================
+     Writing Space — kraft/cork surface, scattered objects
+     ============================================================ */
+  #win-writing .window-content {
+    background:
+      url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.32 0 0 0 0 0.18 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23c)'/%3E%3C/svg%3E"),
+      linear-gradient(160deg, oklch(78% 0.045 70), oklch(70% 0.055 65));
+    background-blend-mode: multiply, normal;
+  }
+  .writing-canvas::before {
+    color: oklch(94% 0.012 82 / 0.7);
+  }
+  .writing-object {
+    background: oklch(96% 0.020 85);
+    border: 1px solid oklch(74% 0.020 70);
+    box-shadow:
+      0 1px 0 oklch(60% 0.020 70 / 0.6),
+      0 8px 18px oklch(20% 0.03 60 / 0.30);
+  }
+  .writing-object--note { padding: var(--s-3) var(--s-4); max-width: 260px; }
+  .writing-object--note p {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .writing-object--quote {
+    padding: var(--s-3) var(--s-4);
+    max-width: 220px;
+    background: oklch(92% 0.030 78);
+  }
+  .writing-object--quote p {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .writing-object--quote cite {
+    display: block;
+    margin-top: var(--s-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-style: normal;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+  .writing-object--photo {
+    padding: 8px 8px 28px;
+    background: oklch(98% 0.010 85);
+    max-width: 160px;
+  }
+  .writing-object--photo .photo-frame {
+    aspect-ratio: 1 / 1;
+    border: none;
+    box-shadow: none;
+  }
+  .writing-object--photo-tall { max-width: 132px; }
+  .writing-object--photo-tall .photo-frame { aspect-ratio: 3 / 4; }
+  .writing-object--photo-wide { max-width: 172px; }
+  .writing-object--photo-wide .photo-frame { aspect-ratio: 4 / 3; }
+  .writing-object--photo .caption {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-faint);
+    text-align: center;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+  .writing-tape {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 36px; height: 12px;
+    background: oklch(72% 0.10 80 / 0.65);
+    border: 1px solid oklch(56% 0.10 80 / 0.4);
+  }
+
+  /* ============================================================
+     Mobile (≤ 640px) — adapted card stack
+     ============================================================ */
+  @media (max-width: 640px) {
+    body { overflow: auto; }
+    #desktop { position: static; height: auto; padding: var(--s-4) var(--s-3) calc(var(--taskbar-h) + var(--s-4)); }
+    #icon-grid {
+      position: static;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s-2);
+      margin-bottom: var(--s-4);
+    }
+    .desktop-icon {
+      padding: var(--s-2);
+      background: oklch(94% 0.012 82 / 0.85);
+      color: var(--ink);
+      text-shadow: none;
+      border-radius: 4px;
+    }
+    .desktop-icon .icon-label { color: var(--ink); }
+    .window {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      transform: none !important;
+      opacity: 1 !important;
+      margin-bottom: var(--s-4);
+      box-shadow:
+        0 4px 14px oklch(20% 0.03 60 / 0.25),
+        inset 1px 1px 0 var(--bevel-light),
+        inset -1px -1px 0 var(--bevel-dark);
+    }
+    .window[hidden] { display: flex; }
+    .title-buttons { display: none; }
+    .title-bar { cursor: default; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-card--anchor { grid-column: auto; }
+    #taskbar { padding: 0 var(--s-2); }
+    #taskbar-windows { display: none; }
+    #start-menu { left: 0; right: 0; width: auto; }
+    #win-about .window-content { grid-template-columns: 80px 1fr; }
+    .animal-census { grid-template-columns: 1fr; }
+    .writing-canvas { min-height: 200px; }
+    .writing-object { position: static; transform: none; margin-bottom: var(--s-3); max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="desktop">
+
+  <!-- ============================================================
+       Desktop icons (2-column grid, top-left)
+       ============================================================ -->
+  <ul id="icon-grid" aria-label="Desktop icons">
+    <li>
+      <button class="desktop-icon" data-window="about" aria-label="Open About window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <rect x="13" y="3" width="14" height="2" fill="#5a3415"/>
+            <rect x="6" y="5" width="28" height="32" fill="#7a4423" rx="1"/>
+            <rect x="8" y="7" width="24" height="28" fill="#e8d5b4"/>
+            <rect x="9" y="8" width="22" height="26" fill="none" stroke="#7a4423" stroke-width="0.5" opacity="0.45"/>
+            <circle cx="20" cy="18" r="4.5" fill="#7a4423"/>
+            <path d="M11 33 Q20 24 29 33 L29 35 L11 35 Z" fill="#7a4423"/>
+          </svg>
+        </span>
+        <span class="icon-label">About</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="work" aria-label="Open Work window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <rect x="14" y="8" width="12" height="6" fill="none" stroke="#5a3415" stroke-width="1.8" rx="1"/>
+            <rect x="5" y="13" width="30" height="22" fill="#8b5a2c" stroke="#5a3415" stroke-width="1.5" rx="1"/>
+            <line x1="5" y1="22" x2="35" y2="22" stroke="#5a3415" stroke-width="1"/>
+            <rect x="18" y="20" width="4" height="3" fill="#d4a040" stroke="#5a3415" stroke-width="0.7"/>
+            <line x1="8" y1="17" x2="32" y2="17" stroke="#5a3415" stroke-width="0.3" stroke-dasharray="1 1.5"/>
+          </svg>
+        </span>
+        <span class="icon-label">Work</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="running" aria-label="Open Running window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <path d="M11 21 Q11 18 14 18 L19 18 Q20 18 20 20 L20 22" fill="#c46a3a" stroke="#5a3415" stroke-width="1.2"/>
+            <path d="M4 28 L6 24 Q12 21 18 21 L24 21 Q30 22 33 26 L34 30 L4 30 Z" fill="#c46a3a" stroke="#5a3415" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="3" y="30" width="32" height="3" fill="#3a2515"/>
+            <line x1="13" y1="22" x2="19" y2="22" stroke="#fff8e8" stroke-width="0.7"/>
+            <line x1="13" y1="24" x2="19" y2="24" stroke="#fff8e8" stroke-width="0.7"/>
+            <line x1="13" y1="26" x2="19" y2="26" stroke="#fff8e8" stroke-width="0.7"/>
+            <path d="M22 26 L28 24" stroke="#e8d5b4" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="icon-label">Running</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="martialarts" aria-label="Open Martial Arts window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <!-- folded black belt with knot in middle, two stripes on right tail -->
+            <path d="M3 18 L37 18 L37 24 L3 24 Z" fill="#1a1612" stroke="#0a0806" stroke-width="0.8"/>
+            <!-- knot center -->
+            <rect x="15" y="15" width="10" height="10" fill="#1a1612" stroke="#0a0806" stroke-width="0.8"/>
+            <rect x="16.5" y="16.5" width="7" height="7" fill="#2a2218" stroke="#0a0806" stroke-width="0.4"/>
+            <!-- left tail hanging down -->
+            <path d="M14 24 L14 35 L18 35 L18 24 Z" fill="#1a1612" stroke="#0a0806" stroke-width="0.8"/>
+            <!-- right tail hanging down with stripes -->
+            <path d="M22 24 L22 35 L26 35 L26 24 Z" fill="#1a1612" stroke="#0a0806" stroke-width="0.8"/>
+            <rect x="22" y="29" width="4" height="1.4" fill="#d4a040"/>
+            <rect x="22" y="32" width="4" height="1.4" fill="#d4a040"/>
+            <!-- subtle highlight on top edge -->
+            <line x1="3" y1="18" x2="37" y2="18" stroke="#3a2818" stroke-width="0.3"/>
+          </svg>
+        </span>
+        <span class="icon-label">Martial Arts</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="homestead" aria-label="Open Homestead window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <ellipse cx="20" cy="22" rx="10" ry="8" fill="#fff8e8" stroke="#5a3415" stroke-width="1.4"/>
+            <circle cx="13" cy="20" r="3" fill="#fff8e8" stroke="#5a3415" stroke-width="1.1"/>
+            <circle cx="27" cy="20" r="3" fill="#fff8e8" stroke="#5a3415" stroke-width="1.1"/>
+            <circle cx="14" cy="27" r="3" fill="#fff8e8" stroke="#5a3415" stroke-width="1.1"/>
+            <circle cx="26" cy="27" r="3" fill="#fff8e8" stroke="#5a3415" stroke-width="1.1"/>
+            <circle cx="20" cy="14" r="2.5" fill="#fff8e8" stroke="#5a3415" stroke-width="1"/>
+            <ellipse cx="20" cy="12" rx="4" ry="4.5" fill="#5a3415"/>
+            <ellipse cx="17" cy="9" rx="1.4" ry="2.4" fill="#5a3415" transform="rotate(-15 17 9)"/>
+            <ellipse cx="23" cy="9" rx="1.4" ry="2.4" fill="#5a3415" transform="rotate(15 23 9)"/>
+            <circle cx="18.5" cy="12" r="0.5" fill="#fff8e8"/>
+            <circle cx="21.5" cy="12" r="0.5" fill="#fff8e8"/>
+            <rect x="14" y="30" width="2" height="5" fill="#5a3415"/>
+            <rect x="24" y="30" width="2" height="5" fill="#5a3415"/>
+          </svg>
+        </span>
+        <span class="icon-label">Homestead</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="bus" aria-label="Open The Bus window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <rect x="4" y="14" width="32" height="14" fill="#e8b540" stroke="#5a3415" stroke-width="1.5"/>
+            <rect x="7" y="17" width="4" height="4" fill="#a8c8d8" stroke="#5a3415" stroke-width="0.5"/>
+            <rect x="13" y="17" width="4" height="4" fill="#a8c8d8" stroke="#5a3415" stroke-width="0.5"/>
+            <rect x="19" y="17" width="4" height="4" fill="#a8c8d8" stroke="#5a3415" stroke-width="0.5"/>
+            <rect x="25" y="17" width="4" height="4" fill="#a8c8d8" stroke="#5a3415" stroke-width="0.5"/>
+            <line x1="4" y1="25" x2="36" y2="25" stroke="#5a3415" stroke-width="0.6"/>
+            <rect x="32" y="22" width="3" height="6" fill="#5a3415" opacity="0.55"/>
+            <circle cx="36" cy="22" r="1" fill="#fff8e8" stroke="#5a3415" stroke-width="0.4"/>
+            <circle cx="11" cy="30" r="3.5" fill="#3a2515"/>
+            <circle cx="11" cy="30" r="1.1" fill="#8b5a2c"/>
+            <circle cx="29" cy="30" r="3.5" fill="#3a2515"/>
+            <circle cx="29" cy="30" r="1.1" fill="#8b5a2c"/>
+          </svg>
+        </span>
+        <span class="icon-label">The Bus</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="writing" aria-label="Open Writing Space window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <rect x="5" y="6" width="30" height="28" fill="#e8d5b4" stroke="#5a3415" stroke-width="1.5"/>
+            <line x1="5" y1="16" x2="35" y2="16" stroke="#5a3415" stroke-width="0.9"/>
+            <line x1="5" y1="25" x2="35" y2="25" stroke="#5a3415" stroke-width="0.9"/>
+            <rect x="7" y="8" width="3" height="8" fill="#c46a3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="11" y="9" width="3" height="7" fill="#4a6b3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="15" y="8" width="3" height="8" fill="#d4a040" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="19" y="10" width="3" height="6" fill="#5a3415" stroke="#3a2515" stroke-width="0.4"/>
+            <rect x="23" y="8" width="3" height="8" fill="#a85a35" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="27" y="9" width="3" height="7" fill="#4a6b3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="31" y="8" width="2" height="8" fill="#c46a3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="7" y="17" width="3" height="8" fill="#4a6b3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="11" y="18" width="3" height="7" fill="#c46a3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="15" y="17" width="3" height="8" fill="#d4a040" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="19" y="22" width="9" height="3" fill="#8b5a2c" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="29" y="18" width="3" height="7" fill="#c46a3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="7" y="26" width="3" height="8" fill="#a85a35" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="11" y="26" width="3" height="8" fill="#d4a040" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="15" y="27" width="3" height="7" fill="#4a6b3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="19" y="26" width="3" height="8" fill="#c46a3a" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="23" y="27" width="3" height="7" fill="#5a3415" stroke="#3a2515" stroke-width="0.4"/>
+            <rect x="27" y="26" width="3" height="8" fill="#8b5a2c" stroke="#5a3415" stroke-width="0.4"/>
+            <rect x="31" y="27" width="2" height="7" fill="#d4a040" stroke="#5a3415" stroke-width="0.4"/>
+          </svg>
+        </span>
+        <span class="icon-label">Writing</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="notepad" aria-label="Open Notepad window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <rect x="8" y="6" width="22" height="29" fill="#fff8e8" stroke="#5a3415" stroke-width="1.5"/>
+            <rect x="8" y="6" width="22" height="4" fill="#c46a3a"/>
+            <circle cx="13" cy="8" r="0.7" fill="#fff8e8"/>
+            <circle cx="19" cy="8" r="0.7" fill="#fff8e8"/>
+            <circle cx="25" cy="8" r="0.7" fill="#fff8e8"/>
+            <line x1="11" y1="15" x2="27" y2="15" stroke="#c98850" stroke-width="0.6"/>
+            <line x1="11" y1="19" x2="27" y2="19" stroke="#c98850" stroke-width="0.6"/>
+            <line x1="11" y1="23" x2="27" y2="23" stroke="#c98850" stroke-width="0.6"/>
+            <line x1="11" y1="27" x2="27" y2="27" stroke="#c98850" stroke-width="0.6"/>
+            <path d="M12 17 Q14 16 16 17 Q18 18 20 17" stroke="#5a3415" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+            <line x1="22" y1="35" x2="34" y2="22" stroke="#5a3415" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="32" y1="20" x2="35" y2="23" stroke="#3a2515" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="22" cy="35" r="1" fill="#c46a3a"/>
+          </svg>
+        </span>
+        <span class="icon-label">Notepad</span>
+      </button>
+    </li>
+    <li>
+      <button class="desktop-icon" data-window="recycle" aria-label="Open Recycle Bin window">
+        <span class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <rect x="17" y="8" width="6" height="3" fill="#5a3415" rx="0.5"/>
+            <rect x="7" y="11" width="26" height="3" fill="#5a3415"/>
+            <path d="M10 14 L30 14 L28 35 L12 35 Z" fill="#a8c8a8" stroke="#5a3415" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="16" y1="17" x2="15.5" y2="33" stroke="#5a3415" stroke-width="0.7"/>
+            <line x1="20" y1="17" x2="20" y2="33" stroke="#5a3415" stroke-width="0.7"/>
+            <line x1="24" y1="17" x2="24.5" y2="33" stroke="#5a3415" stroke-width="0.7"/>
+            <g transform="translate(20 24)" stroke="#4a6b3a" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M-4 -2 L-2 -5 L0 -2"/>
+              <path d="M0 5 L-3 4 L-4 1"/>
+              <path d="M4 1 L3 4 L0 5"/>
+            </g>
+          </svg>
+        </span>
+        <span class="icon-label">Recycle Bin</span>
+      </button>
+    </li>
+  </ul>
+
+  <!-- ============================================================
+       Windows
+       Pre-rendered, hidden until opened by WindowManager.
+       ============================================================ -->
+
+  <article class="window" id="win-about" data-window="about" data-w="340" data-h="280" data-x="540" data-y="20" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">About</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="photo-frame photo-frame--portrait about-photo">
+        <img class="photo-img" src="assets/photos/christisonfamilyhalloween2024_incredibles.jpeg" alt="The Christison family dressed as the Incredibles for Halloween">
+      </div>
+      <div class="about-text">
+        <p class="name">Andrew Christison</p>
+        <p class="place">Port Angeles, Washington</p>
+        <p class="body">I run a lifecycle marketing agency, build software, train martial arts, run long distances, and homestead with my family on the Olympic Peninsula.</p>
+        <p class="about-hello">Hello World.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="window" id="win-work" data-window="work" data-w="580" data-h="500" data-x="540" data-y="330" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Work</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <p class="work-intro">Things I&rsquo;ve built</p>
+      <div class="work-grid">
+        <article class="work-card work-card--anchor work-card--container work-card--retencity">
+          <a class="work-card-link" href="https://retencity.com" target="_blank" rel="noopener noreferrer">
+            <div class="work-card-logo">
+              <img src="assets/photos/Retencity_logo.png" alt="Retencity">
+              <span class="work-card-arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+          <p class="work-card-desc">We make lifecycle marketing the channel your brand can&rsquo;t believe it ever underinvested in.</p>
+          <div class="work-podcasts">
+            <span class="podcasts-label">Featured on</span>
+            <a class="podcast-link" href="https://www.youtube.com/watch?v=cJsQmqN-IXs" target="_blank" rel="noopener noreferrer">
+              <svg class="podcast-icon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 2 L10 6 L3 10 Z"/></svg>
+              The Conversion Show
+            </a>
+            <a class="podcast-link" href="https://www.elumynt.com/podcast/lifecycle-is-everything-the-retention-framework-every-ecommerce-brand-needs-with-andrew-christison" target="_blank" rel="noopener noreferrer">
+              <svg class="podcast-icon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 2 L10 6 L3 10 Z"/></svg>
+              The Up Arrow Podcast
+            </a>
+            <a class="podcast-link" href="https://podcasts.apple.com/us/podcast/partner-series-retencity-retention-is-the-heart-of/id1435740265?i=1000640535627" target="_blank" rel="noopener noreferrer">
+              <svg class="podcast-icon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 2 L10 6 L3 10 Z"/></svg>
+              The Story of a Brand
+            </a>
+          </div>
+        </article>
+        <a class="work-card work-card--askk" href="https://ask-k.retencity.com/landing" target="_blank" rel="noopener noreferrer">
+          <div class="askk-line">
+            <span class="askk-mark" aria-label="Ask K">
+              <span class="askk-prompt" aria-hidden="true">( *)&gt; </span>ask k<span class="askk-cursor" aria-hidden="true"></span>
+            </span>
+            <span class="work-card-arrow" aria-hidden="true">↗</span>
+          </div>
+          <p class="work-card-desc">ask a question about klaviyo. get an answer cited to the official docs.</p>
+        </a>
+        <a class="work-card work-card--pondlog" href="https://pondlog.co" target="_blank" rel="noopener noreferrer">
+          <h3 class="work-card-name">
+            <span class="work-card-name-text">
+              <span class="pondlog-leaf" aria-hidden="true">🍃</span>
+              pondlog
+            </span>
+            <span class="work-card-arrow" aria-hidden="true">↗</span>
+          </h3>
+          <p class="work-card-desc">what&rsquo;s happening outside, right now. first of their kind nature MCPs.</p>
+        </a>
+        <a class="work-card work-card--cropgraph" href="https://cropgraph.com" target="_blank" rel="noopener noreferrer">
+          <h3 class="work-card-name">
+            <span class="work-card-name-text">
+              <span class="work-card-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <path d="M16 26 V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M16 14 C12 14 10 11 10 8 C13 8 16 10 16 14 Z" fill="#6db740"/>
+                  <path d="M16 14 C20 14 22 11 22 8 C19 8 16 10 16 14 Z" fill="currentColor"/>
+                </svg>
+              </span>
+              CropGraph
+            </span>
+            <span class="work-card-arrow" aria-hidden="true">↗</span>
+          </h3>
+          <p class="work-card-desc">What should I grow here? The API that answers for any US coordinate.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article class="window" id="win-running" data-window="running" data-w="540" data-h="580" data-x="20%" data-y="8%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Running</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="movement-photos">
+        <div class="movement-photo-tile photo-frame"><img class="photo-img" src="assets/photos/Running.jpeg" alt="Andrew on a run" loading="lazy"></div>
+        <div class="movement-photo-tile photo-frame"><img class="photo-img" src="assets/photos/Glowrun_prerace_familyphoto.jpeg" alt="Pre-race family photo at the Glow Run" loading="lazy"></div>
+        <div class="movement-photo-tile photo-frame"><img class="photo-img" src="assets/photos/Runclub_2025.jpeg" alt="Run Club 2025" loading="lazy"></div>
+        <div class="movement-photo-tile photo-frame"><img class="photo-img" src="assets/photos/RunClub_2026.jpeg" alt="Run Club 2026" loading="lazy"></div>
+      </div>
+      <section class="prs-section">
+        <h3>Youth PRs</h3>
+        <ul class="prs-list">
+          <li><span class="pr-time">5:07</span><span class="pr-distance">mile</span></li>
+          <li><span class="pr-time">17:51</span><span class="pr-distance">5K</span></li>
+        </ul>
+      </section>
+      <section class="prs-section">
+        <h3>40+ PRs</h3>
+        <ul class="prs-list">
+          <li><span class="pr-time">6:47</span><span class="pr-distance">mile</span></li>
+          <li><span class="pr-time">23:17</span><span class="pr-distance">5K</span></li>
+          <li><span class="pr-time">47:38</span><span class="pr-distance">10K</span></li>
+          <li><span class="pr-time">2:07</span><span class="pr-distance">half marathon</span></li>
+          <li><span class="pr-time">4:38:39</span><span class="pr-distance">marathon</span></li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <article class="window" id="win-martialarts" data-window="martialarts" data-w="500" data-h="520" data-x="28%" data-y="14%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Martial Arts</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="movement-photos">
+        <div class="movement-photo-tile photo-frame"><img class="photo-img" src="assets/photos/Maisie_Me_1stDan.jpeg" alt="Andrew and his daughter Maisie at her first dan ceremony" loading="lazy"></div>
+        <div class="movement-photo-tile photo-frame"><img class="photo-img" src="assets/photos/taekwondo_family.jpeg" alt="Andrew and family in taekwondo doboks" loading="lazy"></div>
+      </div>
+      <section class="movement-section">
+        <h3>Lineage</h3>
+        <ul class="movement-list">
+          <li>
+            <span class="movement-when">Green Belt</span>
+            <span class="movement-what">Southern Shaolin Kung Fu at Red Dragon Martial Arts.</span>
+          </li>
+          <li>
+            <span class="movement-when">1st Dan</span>
+            <span class="movement-what">Kukkiwon Taekwondo with Hapkido, Judo &amp; One Step Fighting at White Crane Martial Arts.</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <article class="window" id="win-homestead" data-window="homestead" data-w="600" data-h="640" data-x="22%" data-y="6%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Homestead</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="homestead-mosaic">
+        <div class="photo-frame">
+          <img class="photo-img" src="assets/photos/April_Apollo_Lamb_Sheep.jpeg" alt="A Katahdin lamb on the property" loading="lazy">
+        </div>
+        <div class="photo-frame">
+          <img class="photo-img" src="assets/photos/bees_apollo_homestead.jpeg" alt="The bees" loading="lazy">
+        </div>
+        <div class="photo-frame">
+          <img class="photo-img" src="assets/photos/Maisie_pig.jpeg" alt="Maisie with a pig" loading="lazy">
+        </div>
+        <div class="photo-frame">
+          <img class="photo-img" src="assets/photos/ducks_homestead.jpeg" alt="Khaki Campbell ducks" loading="lazy">
+        </div>
+        <div class="photo-frame">
+          <img class="photo-img" src="assets/photos/mama_chicks_homestead.jpeg" alt="A mother hen with her chicks" loading="lazy">
+        </div>
+        <div class="photo-frame">
+          <img class="photo-img" src="assets/photos/Rooster_homestead.jpeg" alt="A rooster named Steve" loading="lazy">
+        </div>
+      </div>
+      <div class="homestead-text">
+        <p class="lead">6.5 acres in the rainshadow of Olympic National Park.</p>
+        <p class="quiet">Port Angeles. The land of fruit and honey.</p>
+      </div>
+      <ul class="animal-census">
+        <li><span class="count">6</span><span class="kind">Katahdin sheep</span></li>
+        <li><span class="count">2</span><span class="kind">Nigerian dwarf goats</span></li>
+        <li><span class="count">6</span><span class="kind">Khaki Campbell ducks</span></li>
+        <li><span class="count">60</span><span class="kind">layer hens</span></li>
+        <li><span class="count">5</span><span class="kind">roosters, all named Steve</span></li>
+        <li><span class="count">2</span><span class="kind">cats</span></li>
+      </ul>
+      <a class="external-link" href="https://www.instagram.com/theneighborshomestead/" target="_blank" rel="noopener noreferrer">@theneighborshomestead <span aria-hidden="true">↗</span></a>
+    </div>
+  </article>
+
+  <article class="window" id="win-bus" data-window="bus" data-w="520" data-h="540" data-x="28%" data-y="10%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">The Bus</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="bus-hero">
+        <img class="photo-img" src="assets/photos/neighborbus.jpeg" alt="A 2002 school bus, converted by hand" loading="lazy">
+      </div>
+      <div class="bus-body">
+        <div>
+          <p class="lead">A 2002 school bus, converted with love at Barry&rsquo;s Garage, by the man, the legend, himself, Maisie, Megan and Andrew in 2018. Traveled into 2019.</p>
+          <p class="quiet">And we still bussin&rsquo;</p>
+          <div class="bus-route" aria-hidden="true">
+            <span class="left">start</span>
+            <span class="right">arrive</span>
+          </div>
+          <p><a class="external-link" href="https://www.instagram.com/neighborbus/" target="_blank" rel="noopener noreferrer">@neighborbus <span aria-hidden="true">↗</span></a></p>
+        </div>
+        <div class="bus-detail photo-frame">
+          <img class="photo-img" src="assets/photos/neighborbus2.jpeg" alt="Bus interior detail" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="window" id="win-writing" data-window="writing" data-w="680" data-h="540" data-x="16%" data-y="8%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Writing Space</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="writing-canvas">
+        <div class="writing-object writing-object--note" style="--x: 4%; --y: 5%; --rot: -1.8deg;">
+          <p>Things land here when they have somewhere to be.</p>
+        </div>
+        <div class="writing-object writing-object--photo" style="--x: 25%; --y: 28%; --rot: 3deg;">
+          <span class="writing-tape" aria-hidden="true"></span>
+          <div class="photo-frame">
+            <img class="photo-img" src="assets/photos/sunflowerwithwasp.jpeg" alt="A sunflower with a wasp on it" loading="lazy">
+          </div>
+          <p class="caption">Homestead Sunflower, Shining Bright</p>
+        </div>
+        <div class="writing-object writing-object--photo writing-object--photo-tall" style="--x: 64%; --y: 4%; --rot: 2.2deg;">
+          <span class="writing-tape" aria-hidden="true"></span>
+          <div class="photo-frame">
+            <img class="photo-img" src="assets/photos/Megan_wharf_portangeles.jpeg" alt="The Port Angeles wharf" loading="lazy">
+          </div>
+          <p class="caption">Megan at the Port Angeles Wharf</p>
+        </div>
+        <div class="writing-object writing-object--photo writing-object--photo-tall" style="--x: 80%; --y: 48%; --rot: -2deg;">
+          <span class="writing-tape" aria-hidden="true"></span>
+          <div class="photo-frame">
+            <img class="photo-img" src="assets/photos/Megan_Trixiedog.jpeg" alt="Trixie the dog" loading="lazy">
+          </div>
+          <p class="caption">Megan &amp; Trixie Breaking a Guinness World Record</p>
+        </div>
+        <div class="writing-object writing-object--photo writing-object--photo-tall" style="--x: 6%; --y: 56%; --rot: 1.5deg;">
+          <span class="writing-tape" aria-hidden="true"></span>
+          <div class="photo-frame">
+            <img class="photo-img" src="assets/photos/RyanHoliday_RobertGreene_andI.jpeg" alt="With Ryan Holiday and Robert Greene" loading="lazy">
+          </div>
+          <p class="caption">Ryan Holiday &amp; Robert Greene, NY Times Best Selling Authors</p>
+        </div>
+        <div class="writing-object writing-object--photo writing-object--photo-wide" style="--x: 44%; --y: 66%; --rot: -1deg;">
+          <span class="writing-tape" aria-hidden="true"></span>
+          <div class="photo-frame">
+            <img class="photo-img" src="assets/photos/gabormate_lecture_selfie.jpeg" alt="At a Gabor Mat&eacute; lecture" loading="lazy">
+          </div>
+          <p class="caption">The Myth of Normal, Gabor Mat&eacute; lecture</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="window" id="win-notepad" data-window="notepad" data-w="340" data-h="240" data-x="42%" data-y="34%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Notepad</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="notepad-paper">
+        <p>This is why we&rsquo;re here.</p>
+        <p>Make today count.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="window" id="win-recycle" data-window="recycle" data-w="400" data-h="260" data-x="32%" data-y="26%" hidden>
+    <header class="title-bar">
+      <h2 class="title-text">Recycle Bin</h2>
+      <div class="title-buttons">
+        <button class="btn-title btn-min" aria-label="Minimize">−</button>
+        <button class="btn-title btn-close" aria-label="Close">×</button>
+      </div>
+    </header>
+    <div class="window-content">
+      <ul class="recycle-list">
+        <li>
+          <span class="recycle-icon" aria-hidden="true">⌬</span>
+          <span class="recycle-label">things I was sure of at 18</span>
+        </li>
+      </ul>
+      <p class="recycle-empty">1 item · the rest got composted</p>
+    </div>
+  </article>
+
+  <!-- Shut down overlay (easter egg) -->
+  <div id="shutdown-overlay" role="dialog" aria-modal="true" aria-label="Shut down" hidden>
+    <div class="shutdown-message">
+      <p class="shutdown-title">Andrew has stepped away.</p>
+      <p class="shutdown-sub">Click anywhere to wake up</p>
+    </div>
+  </div>
+
+</div><!-- /#desktop -->
+
+<!-- ============================================================
+     Taskbar
+     ============================================================ -->
+<nav id="taskbar" aria-label="Taskbar">
+  <button id="start-btn" aria-haspopup="menu" aria-expanded="false">
+    <span class="start-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    Start
+  </button>
+  <ul id="taskbar-windows" aria-label="Open windows"></ul>
+  <button id="sound-toggle" aria-label="Sound: off" title="Toggle sound">♪</button>
+  <time id="clock" aria-live="off" title="Local time">—:—</time>
+</nav>
+
+<!-- Start menu (anchored above start button) -->
+<ul id="start-menu" role="menu" aria-label="Start menu" hidden>
+  <div class="start-rail" aria-hidden="true"><span class="start-rail-text">andrew</span></div>
+  <div class="start-list">
+    <li role="none"><button role="menuitem" data-window="about"><span class="start-icon" aria-hidden="true">◳</span>About</button></li>
+    <li role="none"><button role="menuitem" data-window="work"><span class="start-icon" aria-hidden="true">▦</span>Work</button></li>
+    <li role="none"><button role="menuitem" data-window="running"><span class="start-icon" aria-hidden="true">⟶</span>Running</button></li>
+    <li role="none"><button role="menuitem" data-window="martialarts"><span class="start-icon" aria-hidden="true">◈</span>Martial Arts</button></li>
+    <li role="none"><button role="menuitem" data-window="homestead"><span class="start-icon" aria-hidden="true">⌂</span>Homestead</button></li>
+    <li role="none"><button role="menuitem" data-window="bus"><span class="start-icon" aria-hidden="true">▭</span>The Bus</button></li>
+    <li role="none"><button role="menuitem" data-window="writing"><span class="start-icon" aria-hidden="true">✎</span>Writing Space</button></li>
+    <li role="none"><button role="menuitem" data-window="notepad"><span class="start-icon" aria-hidden="true">≣</span>Notepad</button></li>
+    <li role="none"><button role="menuitem" data-window="recycle"><span class="start-icon" aria-hidden="true">⌬</span>Recycle Bin</button></li>
+    <li class="start-separator" role="separator"></li>
+    <li role="none"><a role="menuitem" href="https://www.linkedin.com/in/andrewchristison" target="_blank" rel="noopener noreferrer"><span class="start-icon" aria-hidden="true">↗</span>LinkedIn</a></li>
+    <li class="start-separator" role="separator"></li>
+    <li role="none"><button role="menuitem" id="shutdown-btn"><span class="start-icon" aria-hidden="true">⏻</span>Shut Down&hellip;</button></li>
+  </div>
+</ul>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ============================================================
+     Window registry — sizes and spawn positions
+     Values resolved against viewport at open time so they adapt.
+     ============================================================ */
+  const WINDOWS = [
+    'about', 'work', 'running', 'martialarts', 'homestead',
+    'bus', 'writing', 'notepad', 'recycle'
+  ];
+  const AUTO_OPEN = ['about', 'work'];
+  const TASKBAR_H = 38;
+  const MIN_VISIBLE = 44;
+
+  /* ============================================================
+     SoundEngine — Web Audio API, runtime-generated tones.
+     ============================================================ */
+  const SoundEngine = (() => {
+    let ctx = null;
+    let enabled = false;
+    try { enabled = localStorage.getItem('ac-sound') === 'on'; } catch (e) { /* private mode */ }
+
+    function ensureContext() {
+      if (ctx) return ctx;
+      try {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+      } catch (e) {
+        ctx = null;
+      }
+      return ctx;
+    }
+
+    function tone(freq, durSec, gainPeak = 0.07, type = 'sine') {
+      if (!enabled) return;
+      const c = ensureContext();
+      if (!c) return;
+      if (c.state === 'suspended') c.resume();
+      const osc = c.createOscillator();
+      const g = c.createGain();
+      osc.type = type;
+      osc.frequency.value = freq;
+      osc.connect(g);
+      g.connect(c.destination);
+      const now = c.currentTime;
+      g.gain.setValueAtTime(0, now);
+      g.gain.linearRampToValueAtTime(gainPeak, now + 0.008);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + durSec);
+      osc.start(now);
+      osc.stop(now + durSec + 0.02);
+    }
+
+    function chime() {
+      tone(880, 0.07, 0.06, 'sine');
+      setTimeout(() => tone(1175, 0.12, 0.05, 'sine'), 55);
+    }
+    function softClose() {
+      tone(660, 0.05, 0.05, 'sine');
+      setTimeout(() => tone(440, 0.08, 0.04, 'sine'), 30);
+    }
+    function click() {
+      if (!enabled) return;
+      const c = ensureContext();
+      if (!c) return;
+      if (c.state === 'suspended') c.resume();
+      const buf = c.createBuffer(1, c.sampleRate * 0.02, c.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < data.length; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.3));
+      }
+      const src = c.createBufferSource();
+      const filter = c.createBiquadFilter();
+      const g = c.createGain();
+      filter.type = 'lowpass';
+      filter.frequency.value = 1400;
+      g.gain.value = 0.04;
+      src.buffer = buf;
+      src.connect(filter); filter.connect(g); g.connect(c.destination);
+      src.start();
+    }
+    function unlock() {
+      const notes = [659, 784, 988, 1175];
+      notes.forEach((f, i) => setTimeout(() => tone(f, 0.16, 0.05, 'sine'), i * 90));
+    }
+
+    function setEnabled(v) {
+      enabled = v;
+      try { localStorage.setItem('ac-sound', v ? 'on' : 'off'); } catch (e) {}
+      renderButton();
+      if (v) chime();
+    }
+    function toggle() { setEnabled(!enabled); }
+    function renderButton() {
+      const btn = document.getElementById('sound-toggle');
+      if (!btn) return;
+      btn.textContent = enabled ? '♪' : '♪';
+      btn.classList.toggle('sound-on', enabled);
+      btn.setAttribute('aria-label', 'Sound: ' + (enabled ? 'on' : 'off'));
+      btn.style.opacity = enabled ? '1' : '0.55';
+    }
+
+    return { chime, softClose, click, unlock, toggle, renderButton, get enabled() { return enabled; } };
+  })();
+
+  /* ============================================================
+     WindowManager — open / close / minimize / restore / bringToFront
+     ============================================================ */
+  const WindowManager = (() => {
+    const state = {};
+    const stack = [];
+    let activeId = null;
+    let zCounter = 10;
+
+    function el(id) { return document.getElementById('win-' + id); }
+
+    function getInitialState(id) {
+      const w = el(id);
+      const dataW = parseInt(w.dataset.w, 10);
+      const dataH = parseInt(w.dataset.h, 10);
+      const x = resolvePercent(w.dataset.x, window.innerWidth - dataW);
+      const y = resolvePercent(w.dataset.y, window.innerHeight - TASKBAR_H - dataH);
+      return { open: false, minimized: false, x, y, w: dataW, h: dataH };
+    }
+
+    function resolvePercent(val, max) {
+      if (typeof val !== 'string') return 0;
+      if (val.endsWith('%')) {
+        return Math.round((parseFloat(val) / 100) * max);
+      }
+      return parseInt(val, 10) || 0;
+    }
+
+    function ensureState(id) {
+      if (!state[id]) state[id] = getInitialState(id);
+      return state[id];
+    }
+
+    function applyPosition(id) {
+      const w = el(id);
+      const s = state[id];
+      w.style.left = s.x + 'px';
+      w.style.top = s.y + 'px';
+      w.style.width = s.w + 'px';
+      w.style.height = s.h + 'px';
+    }
+
+    function isMobile() {
+      return window.matchMedia('(max-width: 640px)').matches;
+    }
+
+    function open(id) {
+      const w = el(id);
+      const s = ensureState(id);
+
+      if (s.open && !s.minimized) {
+        bringToFront(id);
+        return;
+      }
+      if (s.open && s.minimized) {
+        restore(id);
+        return;
+      }
+
+      s.open = true;
+      s.minimized = false;
+      if (!isMobile()) {
+        clampToViewport(id);
+        applyPosition(id);
+      }
+      w.hidden = false;
+      if (!isMobile()) {
+        w.classList.remove('closing', 'minimizing');
+        w.classList.add('opening');
+        w.addEventListener('animationend', () => w.classList.remove('opening'), { once: true });
+      }
+      bringToFront(id);
+      SoundEngine.chime();
+    }
+
+    function close(id) {
+      const w = el(id);
+      const s = ensureState(id);
+      if (!s.open) return;
+
+      const finish = () => {
+        w.hidden = true;
+        w.classList.remove('closing');
+        s.open = false;
+        s.minimized = false;
+        const idx = stack.indexOf(id);
+        if (idx >= 0) stack.splice(idx, 1);
+        if (activeId === id) {
+          activeId = stack.length ? stack[stack.length - 1] : null;
+          if (activeId) markActive(activeId);
+        }
+        renderTaskbar();
+      };
+
+      if (isMobile()) { finish(); return; }
+      w.classList.remove('opening', 'minimizing');
+      w.classList.add('closing');
+      w.addEventListener('animationend', finish, { once: true });
+      SoundEngine.softClose();
+    }
+
+    function minimize(id) {
+      const w = el(id);
+      const s = ensureState(id);
+      if (!s.open || s.minimized) return;
+      s.minimized = true;
+
+      const finish = () => {
+        w.hidden = true;
+        w.classList.remove('minimizing');
+        if (activeId === id) {
+          // pick next non-minimized window as active
+          const next = [...stack].reverse().find(x => x !== id && state[x] && !state[x].minimized);
+          activeId = next || null;
+          if (activeId) markActive(activeId);
+        }
+        renderTaskbar();
+      };
+
+      if (isMobile()) { finish(); return; }
+      w.classList.add('minimizing');
+      w.addEventListener('animationend', finish, { once: true });
+      SoundEngine.click();
+    }
+
+    function restore(id) {
+      const w = el(id);
+      const s = ensureState(id);
+      if (!s.open) { open(id); return; }
+      if (!s.minimized) { bringToFront(id); return; }
+      s.minimized = false;
+      w.hidden = false;
+      if (!isMobile()) {
+        w.classList.add('opening');
+        w.addEventListener('animationend', () => w.classList.remove('opening'), { once: true });
+      }
+      bringToFront(id);
+      renderTaskbar();
+      SoundEngine.click();
+    }
+
+    function bringToFront(id) {
+      const w = el(id);
+      zCounter += 1;
+      if (zCounter > 89) renormalizeStack();
+      w.style.zIndex = zCounter;
+      activeId = id;
+      markActive(id);
+      // move to top of stack
+      const idx = stack.indexOf(id);
+      if (idx >= 0) stack.splice(idx, 1);
+      stack.push(id);
+      renderTaskbar();
+    }
+
+    function renormalizeStack() {
+      const sorted = [...stack];
+      zCounter = 10;
+      sorted.forEach(id => {
+        zCounter += 1;
+        const w = el(id);
+        if (w) w.style.zIndex = zCounter;
+      });
+    }
+
+    function markActive(id) {
+      WINDOWS.forEach(other => {
+        const w = el(other);
+        if (!w) return;
+        w.classList.toggle('window--active', other === id);
+      });
+    }
+
+    function clampToViewport(id) {
+      const s = state[id];
+      const maxX = window.innerWidth - MIN_VISIBLE;
+      const maxY = window.innerHeight - TASKBAR_H - MIN_VISIBLE;
+      const minX = MIN_VISIBLE - s.w;
+      const minY = 0;
+      s.x = Math.max(minX, Math.min(maxX, s.x));
+      s.y = Math.max(minY, Math.min(maxY, s.y));
+    }
+
+    function clampAllToViewport() {
+      WINDOWS.forEach(id => {
+        if (state[id] && state[id].open) {
+          clampToViewport(id);
+          applyPosition(id);
+        }
+      });
+    }
+
+    function setPosition(id, x, y) {
+      const s = state[id];
+      if (!s) return;
+      s.x = x;
+      s.y = y;
+    }
+
+    function renderTaskbar() {
+      const host = document.getElementById('taskbar-windows');
+      host.innerHTML = '';
+      stack.forEach(id => {
+        const s = state[id];
+        if (!s || !s.open) return;
+        const w = el(id);
+        const pill = document.createElement('button');
+        pill.className = 'taskbar-pill';
+        if (s.minimized) pill.classList.add('minimized');
+        if (id === activeId && !s.minimized) pill.classList.add('active');
+        pill.textContent = w.querySelector('.title-text').textContent;
+        pill.dataset.window = id;
+        host.appendChild(pill);
+      });
+    }
+
+    function getState(id) { return state[id]; }
+    function getActive() { return activeId; }
+    function getStack() { return [...stack]; }
+
+    return {
+      open, close, minimize, restore, bringToFront,
+      setPosition, clampAllToViewport, renderTaskbar,
+      getState, getActive, getStack
+    };
+  })();
+
+  /* ============================================================
+     DragController — pointer-event based, hardware-accelerated.
+     ============================================================ */
+  function attachDrag(windowEl) {
+    const id = windowEl.dataset.window;
+    const titleBar = windowEl.querySelector('.title-bar');
+    let dragging = false;
+    let startX = 0, startY = 0;
+    let origX = 0, origY = 0;
+    let pointerId = null;
+
+    titleBar.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('.btn-title')) return;
+      if (window.matchMedia('(max-width: 640px)').matches) return;
+      WindowManager.bringToFront(id);
+      dragging = true;
+      pointerId = e.pointerId;
+      startX = e.clientX;
+      startY = e.clientY;
+      const s = WindowManager.getState(id);
+      origX = s.x;
+      origY = s.y;
+      titleBar.setPointerCapture(pointerId);
+      titleBar.classList.add('dragging');
+    });
+
+    titleBar.addEventListener('pointermove', (e) => {
+      if (!dragging || e.pointerId !== pointerId) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      const s = WindowManager.getState(id);
+      let nx = origX + dx;
+      let ny = origY + dy;
+      const maxX = window.innerWidth - MIN_VISIBLE;
+      const maxY = window.innerHeight - TASKBAR_H - MIN_VISIBLE;
+      const minX = MIN_VISIBLE - s.w;
+      const minY = 0;
+      nx = Math.max(minX, Math.min(maxX, nx));
+      ny = Math.max(minY, Math.min(maxY, ny));
+      windowEl.style.left = nx + 'px';
+      windowEl.style.top = ny + 'px';
+      WindowManager.setPosition(id, nx, ny);
+    });
+
+    function endDrag(e) {
+      if (!dragging || e.pointerId !== pointerId) return;
+      try { titleBar.releasePointerCapture(pointerId); } catch (err) {}
+      dragging = false;
+      pointerId = null;
+      titleBar.classList.remove('dragging');
+    }
+    titleBar.addEventListener('pointerup', endDrag);
+    titleBar.addEventListener('pointercancel', endDrag);
+  }
+
+  /* ============================================================
+     Clock
+     ============================================================ */
+  const ClockTicker = (() => {
+    let interval = null;
+    function format(d) {
+      let h = d.getHours();
+      const m = d.getMinutes();
+      const ampm = h >= 12 ? 'p' : 'a';
+      h = h % 12; if (h === 0) h = 12;
+      return h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+    }
+    function tick() {
+      const el = document.getElementById('clock');
+      if (el) el.textContent = format(new Date());
+    }
+    function start() {
+      tick();
+      interval = setInterval(tick, 20000);
+    }
+    function stop() { if (interval) { clearInterval(interval); interval = null; } }
+    function pauseResume() {
+      if (document.hidden) stop();
+      else { tick(); if (!interval) interval = setInterval(tick, 20000); }
+    }
+    return { start, pauseResume, tick };
+  })();
+
+  /* ============================================================
+     StartMenu
+     ============================================================ */
+  const StartMenu = (() => {
+    let open = false;
+    function toggle() { open ? hide() : show(); }
+    function show() {
+      const menu = document.getElementById('start-menu');
+      const btn = document.getElementById('start-btn');
+      menu.hidden = false;
+      menu.classList.remove('closing');
+      menu.classList.add('opening');
+      menu.addEventListener('animationend', () => menu.classList.remove('opening'), { once: true });
+      btn.setAttribute('aria-expanded', 'true');
+      open = true;
+      SoundEngine.click();
+    }
+    function hide() {
+      const menu = document.getElementById('start-menu');
+      const btn = document.getElementById('start-btn');
+      menu.classList.remove('opening');
+      menu.classList.add('closing');
+      menu.addEventListener('animationend', () => {
+        menu.hidden = true;
+        menu.classList.remove('closing');
+      }, { once: true });
+      btn.setAttribute('aria-expanded', 'false');
+      open = false;
+    }
+    return { toggle, show, hide, get open() { return open; } };
+  })();
+
+  /* ============================================================
+     Shut down (easter egg)
+     ============================================================ */
+  function showShutdown() {
+    const overlay = document.getElementById('shutdown-overlay');
+    overlay.hidden = false;
+    SoundEngine.softClose();
+    const close = () => {
+      overlay.hidden = true;
+      overlay.removeEventListener('click', close);
+      document.removeEventListener('keydown', escClose);
+      SoundEngine.chime();
+    };
+    const escClose = (e) => { if (e.key === 'Escape') close(); };
+    overlay.addEventListener('click', close);
+    document.addEventListener('keydown', escClose);
+  }
+
+  /* ============================================================
+     Konami code (easter egg) — toggles dusk wallpaper
+     ============================================================ */
+  const KonamiEgg = (() => {
+    const seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    let idx = 0;
+    function onKey(e) {
+      const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      if (k === seq[idx]) {
+        idx++;
+        if (idx === seq.length) {
+          idx = 0;
+          document.body.classList.toggle('dusk');
+          SoundEngine.unlock();
+        }
+      } else if (k === seq[0]) {
+        idx = 1;
+      } else {
+        idx = 0;
+      }
+    }
+    function start() { document.addEventListener('keydown', onKey); }
+    return { start };
+  })();
+
+  /* ============================================================
+     Init
+     ============================================================ */
+  function init() {
+    // Friendly note for the curious dev
+    try {
+      console.log(
+        '%c[ andrewchristison.com ]',
+        'font: 600 14px IBM Plex Mono, monospace; color: #b8662a;'
+      );
+      console.log(
+        '%cyou opened devtools. welcome to the back of house.\nthe whole site is one HTML file. the chrome is warm because Microsoft grey isn’t a Peninsula color.\nthere is a konami code. there is a shut down button. happy hunting.',
+        'font: 13px IBM Plex Mono, monospace; color: #5a3e26; line-height: 1.6;'
+      );
+    } catch (e) {}
+
+    // Desktop icons → open windows
+    document.querySelectorAll('.desktop-icon').forEach(el => {
+      el.addEventListener('click', () => {
+        WindowManager.open(el.dataset.window);
+        SoundEngine.click();
+      });
+    });
+
+    // Wire up each window's title-bar buttons and drag, plus click-to-front on body
+    document.querySelectorAll('.window').forEach(w => {
+      const id = w.dataset.window;
+      attachDrag(w);
+      w.querySelector('.btn-min').addEventListener('click', (e) => {
+        e.stopPropagation();
+        WindowManager.minimize(id);
+      });
+      w.querySelector('.btn-close').addEventListener('click', (e) => {
+        e.stopPropagation();
+        WindowManager.close(id);
+      });
+      w.addEventListener('pointerdown', () => {
+        if (!w.classList.contains('window--active')) WindowManager.bringToFront(id);
+      });
+    });
+
+    // Start button
+    document.getElementById('start-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      StartMenu.toggle();
+    });
+    document.addEventListener('click', (e) => {
+      if (StartMenu.open && !e.target.closest('#start-menu') && !e.target.closest('#start-btn')) {
+        StartMenu.hide();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (StartMenu.open) { StartMenu.hide(); return; }
+        const active = WindowManager.getActive();
+        if (active) WindowManager.close(active);
+      }
+    });
+
+    // Start menu items
+    document.querySelectorAll('#start-menu [data-window]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        StartMenu.hide();
+        WindowManager.open(btn.dataset.window);
+      });
+    });
+
+    // Shut down
+    document.getElementById('shutdown-btn').addEventListener('click', () => {
+      StartMenu.hide();
+      showShutdown();
+    });
+
+    // Sound toggle
+    SoundEngine.renderButton();
+    document.getElementById('sound-toggle').addEventListener('click', () => {
+      SoundEngine.toggle();
+    });
+
+    // Taskbar pills delegate
+    document.getElementById('taskbar-windows').addEventListener('click', (e) => {
+      const pill = e.target.closest('.taskbar-pill');
+      if (!pill) return;
+      const id = pill.dataset.window;
+      const s = WindowManager.getState(id);
+      if (!s) return;
+      if (s.minimized) WindowManager.restore(id);
+      else if (WindowManager.getActive() === id) WindowManager.minimize(id);
+      else WindowManager.bringToFront(id);
+    });
+
+    // Clock
+    ClockTicker.start();
+    document.addEventListener('visibilitychange', ClockTicker.pauseResume);
+
+    // Clock right-click — small easter egg
+    document.getElementById('clock').addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      const h = new Date().getHours();
+      const msg =
+        h < 5  ? 'the wee hours' :
+        h < 12 ? 'morning is for clarity' :
+        h < 17 ? 'good afternoon' :
+        h < 22 ? 'evening' :
+                 'still up?';
+      const tip = document.createElement('div');
+      tip.textContent = msg;
+      Object.assign(tip.style, {
+        position: 'fixed',
+        right: '8px',
+        bottom: '44px',
+        padding: '6px 10px',
+        background: 'var(--paper)',
+        color: 'var(--ink)',
+        fontFamily: 'var(--font-mono)',
+        fontSize: '11px',
+        letterSpacing: '0.04em',
+        boxShadow: 'inset 1px 1px 0 var(--bevel-light), inset -1px -1px 0 var(--bevel-dark), 0 4px 12px var(--bevel-shadow)',
+        zIndex: 200,
+        pointerEvents: 'none',
+        opacity: '0',
+        transition: 'opacity 180ms var(--ease-out)'
+      });
+      document.body.appendChild(tip);
+      requestAnimationFrame(() => { tip.style.opacity = '1'; });
+      setTimeout(() => {
+        tip.style.opacity = '0';
+        setTimeout(() => tip.remove(), 200);
+      }, 2400);
+    });
+
+    // Konami code
+    KonamiEgg.start();
+
+    // Viewport changes
+    window.addEventListener('resize', () => {
+      WindowManager.clampAllToViewport();
+    });
+
+    // Auto-open the load-state windows, with a tiny stagger
+    if (!window.matchMedia('(max-width: 640px)').matches) {
+      AUTO_OPEN.forEach((id, i) => {
+        setTimeout(() => WindowManager.open(id), i * 70);
+      });
+    } else {
+      // On mobile, render the windows in-flow without animation; CSS handles layout
+      document.querySelectorAll('.window').forEach(w => { w.hidden = false; });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

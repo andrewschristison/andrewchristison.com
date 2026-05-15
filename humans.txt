@@ -1,0 +1,23 @@
+/* TEAM */
+Founder, builder, homesteader: Andrew Christison
+Location: Port Angeles, Washington, USA
+LinkedIn: linkedin.com/in/andrewchristison
+
+/* THANKS */
+Amy Slater, co-founder at Retencity
+The five Steves
+Olympic National Park
+Tahoma and Georgia
+
+/* SITE */
+Last update: 2026-05-15
+Language: English
+Doctype: HTML5
+
+/* TECHNOLOGY */
+Vanilla HTML, CSS, JavaScript
+No framework, no build step
+System font stack: Tahoma for chrome, Georgia for content
+Web Audio API for sound effects
+Hosting: Vercel
+Win95 inspired desktop environment, warm not grey

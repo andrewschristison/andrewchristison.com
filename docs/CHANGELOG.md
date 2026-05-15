@@ -1,20 +1,22 @@
-# Changelog — Ask K
+# Changelog: andrewchristison.com
 
 All notable changes to this project, newest first.
 Format: What it does. Why it matters.
 
 ---
 
-## 2026-04-06
+## 2026-05-15
 
-- **Project initialized.** PRD v2.2 approved, CLAUDE.md created, stickies defined, competitive analysis completed. Foundation for Ask K is set — ready for repo creation and first code.
+- **First commit of the actual site.** The full Win95-inspired desktop (about 98 KB of index.html), favicon.svg, assets/og-image.png, .gitignore, and assets/photos/ all enter version control. Prior commits were scaffold and skills only; the site itself lived only on disk.
 
-- **Named the product "Ask K" at retencity.ai/ask-k.** Memorable, two syllables, no trademark risk, works as both URL path and brand ("Just Ask K").
+- **Shipped SEO/GEO infrastructure.** Added robots.txt, sitemap.xml, llms.txt, humans.txt, canonical link, Open Graph block, Twitter card block, and JSON-LD Person schema in index.html head. The site is now legible to traditional crawlers (Google, Bing) and to LLM crawlers (llms.txt, schema.org Person), without changing any visible UI or window behavior.
 
-- **Confirmed Zendesk Help Center API as primary ingestion method.** Anonymous GET requests to list articles have zero rate limit impact. Hourly incremental polling is viable for catching new feature announcements same-day.
+- **Replaced data-URI favicon with external favicon.svg.** Mushroom mark now ships as a real file at the root, picked up by browsers and feed readers that don't parse data URIs. The Win95 four-pane data-URI that previously lived inline in index.html is gone.
 
-- **Confirmed developers.klaviyo.com runs on ReadMe.io, not Zendesk.** Requires separate crawl strategy (Firecrawl or sitemap-based). Secondary ingestion target.
+- **Locked a single canonical source for identity facts.** Andrew's name, role, location, products, and external links express the same values across robots.txt, sitemap.xml, llms.txt, humans.txt, meta description, OG, Twitter, and JSON-LD. DRY for content. Future updates touch one place per fact, not seven.
 
-- **Completed competitive analysis.** No direct competitor exists in this space. Klaviyo's own AI (K:AI) serves end consumers, not Klaviyo users. Gap is real and defensible with tiered knowledge architecture.
+## 2026-05-14
 
-- **Defined three-tier knowledge architecture.** Tier 1: automated doc index. Tier 2: curated expert knowledge. Tier 3: embedded practitioner judgment via system prompt. This is the moat.
+- **Project scaffold created.** CLAUDE.md, BRIEF.md, STICKIES.md, and supporting docs initialized. 56 skills synced from gundry-agents and pruned. Foundation set for build sessions.
+
+- **Creative brief finalized.** Desktop metaphor, content architecture, design direction, window behavior, Easter eggs, and mobile approach locked in BRIEF.md. Every build decision traces back to it.
