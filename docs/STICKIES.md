@@ -149,4 +149,12 @@ That's all 10. Stickies 6-12 from Ask K (ingestion, retrieval, Zendesk, system p
 
 _This section tracks real incidents that produced new rules. Each entry: date, what happened, what rule prevents recurrence._
 
-_(None yet — this is a new project. First entries will come from the build.)_
+### 2026-05-15: Missing `btn-min` crashed the taskbar
+
+**What happened.** Shipped a Run dialog (`win-run`) with only a close button (the Win95 modal-dialog convention). The `init()` `.window` iteration in `index.html` called `.addEventListener` on the result of `w.querySelector('.btn-min')` without a null-check. When the loop reached `win-run`, the unchecked null threw a `TypeError` and halted `init()` before the Start button handler, sound toggle, clock ticker, taskbar pills, the new Easter egg controllers, and `AUTO_OPEN` ran. From a visitor's perspective the entire taskbar was dead. Fix: null-guard both button lookups (commit `6a8e69a`).
+
+**Rule.** When introducing a new window variant that omits any standard title-bar control, grep `init()` and the window manager for code that assumes that control's presence before shipping. The init loop is what enforces window invariants; if you break the invariant deliberately, update the loop (or null-guard it). Don't ship a new shape and trust that nothing depended on the old one.
+
+**Why this matters.** A null-pointer error inside a `forEach` halts every later setup step in the same function. The blast radius of broken initialization is the entire interactive site.
+
+**Companion rule.** When CLI is the only verification path available for a session, the Sticky 7 visual checklist cannot be skipped; it must be explicitly flagged as a pending item in `SESSION_HANDOFF.md` so the next session opens with eyes on the live site. This bug surfaced exactly there.
