@@ -69,7 +69,12 @@ _Inventory of hidden content and interactions. Each entry: what it is, where it 
 ### EE-012: Cursor trails (added 2026-05-15)
 **Location:** Start menu → Settings → Mouse → Cursor trails (toggle).
 **Trigger:** Toggle on.
-**Content:** Small accent-soft dots fade behind the pointer as it moves. Off by default. Disabled (and not rendered) under `prefers-reduced-motion`.
+**Content:** Cursor-arrow-shaped ghosts (CSS clip-path chevron) trail behind the pointer in accent-soft, shrinking and fading over 720ms. Spawn cadence ~14ms (one per 60fps frame); 24-ghost cap to protect slower GPUs. Off by default. Disabled (and not rendered) under `prefers-reduced-motion`.
+
+### EE-013: Solitaire (added 2026-05-15)
+**Location:** Start menu → Programs → Games → Solitaire.
+**Trigger:** Click.
+**Content:** Full Klondike Solitaire. 7 tableau columns dealt 1-2-3-4-5-6-7 with top card face-up. Single-card draw stock (click to draw; click empty stock to recycle waste). 4 foundations build up by suit from Ace to King. Tableau builds down in alternating colors; empty tableau columns accept only Kings. Drag-and-drop for moves (single cards or face-up substacks). Double-click any face-up top card to auto-send it to a foundation if valid. Face-down tableau cards auto-flip when their cover moves. New Game button resets the deal. Win triggers the classic Win95 card cascade: cards bounce off the bottom of the viewport with gravity and energy loss, randomized initial velocities, semi-transparent `ANDREW WAS HERE` banner over the felt. `prefers-reduced-motion` skips the physics cascade but keeps the banner and unlock-arpeggio sound.
 
 ### EE-clock-right-click
 **Location:** Right-click the taskbar clock.

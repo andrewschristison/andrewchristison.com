@@ -7,6 +7,10 @@ Format: What it does. Why it matters.
 
 ## 2026-05-15
 
+- **Solitaire shipped, fully playable.** Klondike, single-card draw. Drag-and-drop for moves, double-click face-up tops to auto-send to a foundation, click stock to draw or recycle. Win triggers the classic Win95 card-bounce cascade: cards launch from the foundations with randomized velocities, fall under gravity, bounce off the viewport bottom with 0.7 energy loss, and slide off-screen. `ANDREW WAS HERE` banner overlays the felt. New Game button resets the deal. Warm crosshatch card backs (deep amber on dark brown) and a sage-green felt that fits the Peninsula palette. Reduced-motion skips the cascade but keeps the banner.
+
+- **Refactor:** `.ms-banner` CSS class renamed to `.game-banner` so Minesweeper and Solitaire share the same banner styling. IDs stay per-window.
+
 - **Minesweeper became a real game.** Replaced the static "ANDREW WAS HERE" board with a functional 9x9 / 10-mine Minesweeper. First-click safety, cascade reveal, right-click flags, classic colored numbers (1=blue through 8=gray), live timer and mine counter, smiley reset button with "oh" face on mouse-down. Win and loss overlay a semi-transparent `ANDREW WAS HERE` banner. Game resets when the Minesweeper window is closed and reopened, but persists across minimize/restore (fixed an open-hook bug that was resetting on every restore).
 
 - **Run dialog UX overhaul.** Input now reliably auto-focuses on open via a double-rAF (post window-open animation). Enter submits. After submit: input clears, refocuses, output line flashes paper-yellow for 240ms, soft click sound. Result: typing `goats` then Enter then `miles` feels like sitting at a Win95 prompt instead of fighting form widgets.
