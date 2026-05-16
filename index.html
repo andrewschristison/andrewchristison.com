@@ -4184,8 +4184,6 @@
         const cardEl = e.target.closest('.card.draggable');
         if (!cardEl) return;
         const source = cardEl.dataset.source;
-        e.currentTarget = cardEl; // pin for getBoundingClientRect
-        const synthEvent = e; // pointer events have currentTarget; we capture via cardEl directly
         if (source === 'waste') {
           startDragOn(cardEl, e, 'waste');
         } else if (source === 'tableau') {

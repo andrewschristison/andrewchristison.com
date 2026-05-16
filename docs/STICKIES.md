@@ -149,6 +149,14 @@ That's all 10. Stickies 6-12 from Ask K (ingestion, retrieval, Zendesk, system p
 
 _This section tracks real incidents that produced new rules. Each entry: date, what happened, what rule prevents recurrence._
 
+### 2026-05-15: Read-only Event property assignment crashed Solitaire drag
+
+**What happened.** The Solitaire `pointerdown` handler assigned `e.currentTarget = cardEl` as a leftover from a refactor (intended as "pin for getBoundingClientRect"). The whole script runs under `'use strict'`, and `Event.currentTarget` is a read-only DOM property. The assignment threw `TypeError` on every card click, before the dispatch branches that would have called `startDragOn`. Result: dealing worked but no card could be moved. Fix: delete the assignment line and a companion dead-code variable. `startDragOn` already passes `currentTarget` through a plain object, so nothing else needed to change.
+
+**Rule.** Never assign to `Event` object properties (`target`, `currentTarget`, `type`, `bubbles`, etc. are all read-only). If you need to "pin" data from an event for use further down the handler, store it in a local variable. Strict mode turns the silent no-op of non-strict mode into a loud throw, which is what surfaced this; without strict mode the same code would have silently dropped writes and behavior would have been correct by accident.
+
+**Why this matters.** Same shape as the `btn-min` bug: a handler crashes inside an event listener, the user sees a feature that does nothing, and the only signal is in the console. Defensive habit: when a UI feature appears to "do nothing," open the console first; a thrown error inside a handler is the most likely cause.
+
 ### 2026-05-15: Missing `btn-min` crashed the taskbar
 
 **What happened.** Shipped a Run dialog (`win-run`) with only a close button (the Win95 modal-dialog convention). The `init()` `.window` iteration in `index.html` called `.addEventListener` on the result of `w.querySelector('.btn-min')` without a null-check. When the loop reached `win-run`, the unchecked null threw a `TypeError` and halted `init()` before the Start button handler, sound toggle, clock ticker, taskbar pills, the new Easter egg controllers, and `AUTO_OPEN` ran. From a visitor's perspective the entire taskbar was dead. Fix: null-guard both button lookups (commit `6a8e69a`).
