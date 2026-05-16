@@ -36,10 +36,10 @@ _Inventory of hidden content and interactions. Each entry: what it is, where it 
 **Trigger:** Click.
 **Content:** Small window: "This browser has been retired. Try going outside." with a link to pondlog.co (opens in a new tab).
 
-### EE-007: Minesweeper (added 2026-05-15)
+### EE-007: Minesweeper (added 2026-05-15, made playable same day)
 **Location:** Start menu → Programs → Games → Minesweeper.
 **Trigger:** Click.
-**Content:** Win95-style Minesweeper chrome (010 mine count, smiley face, 000 timer) above a 9x9 grid. The letters "ANDREW WAS HERE" appear across specific cells. Static; clicks do nothing.
+**Content:** Functional Minesweeper. 9x9 beginner board, 10 mines, first-click safety (mines placed only after first click, never on the clicked cell or its 8 neighbors). Left-click reveals (cascade-reveals empty regions); right-click toggles a flag. The mine counter shows mines remaining (`MINES − flags`, can go negative for over-flagging). The timer counts seconds while in play, max 999. Smiley face is the reset button and shows live state: ☺ while idle/playing, 😮 while a click is in progress (mouse-down feedback), 😎 on win, 💀 on loss. On win the remaining mines auto-flag; on loss all mines reveal with the clicked one highlighted in red. Both outcomes overlay a 60% alpha `ANDREW WAS HERE` banner that dismisses on click.
 
 ### EE-008: Drag to Recycle Bin (added 2026-05-15)
 **Location:** Any desktop icon dropped onto the Recycle Bin.
