@@ -3672,15 +3672,18 @@
       });
     });
 
-    // Wire up each window's title-bar buttons and drag, plus click-to-front on body
+    // Wire up each window's title-bar buttons and drag, plus click-to-front on body.
+    // Buttons are optional (e.g. the Run dialog has no minimize) so guard each lookup.
     document.querySelectorAll('.window').forEach(w => {
       const id = w.dataset.window;
       attachDrag(w);
-      w.querySelector('.btn-min').addEventListener('click', (e) => {
+      const minBtn = w.querySelector('.btn-min');
+      if (minBtn) minBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         WindowManager.minimize(id);
       });
-      w.querySelector('.btn-close').addEventListener('click', (e) => {
+      const closeBtn = w.querySelector('.btn-close');
+      if (closeBtn) closeBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         WindowManager.close(id);
       });
